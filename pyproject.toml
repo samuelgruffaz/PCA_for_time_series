@@ -1,0 +1,28 @@
+[project]
+authors = [
+  { name = "Samuel Gruffaz", email = "samuel.gruffaz@ens-paris-saclay.fr" },
+  { name = "Thibaut Germain", email = "thibaut.germain@ens-paris-saclay.fr" },
+]
+maintainers = [
+  { name = "Samuel Gruffaz", email = "samuel.gruffaz@ens-paris-saclay.fr" },
+  { name = "Thibaut Germain", email = "thibaut.germain@ens-paris-saclay.fr" },
+]
+
+name = "PCA_for_timeseries"
+dependencies = ["jax>=0.4.30", "optax>=0.2.3","matplotlib>=3.9.1","numpy>=2.0.2","scipy>=1.13.1","pandas>=2.2.2","scikit-learn>=1.5.1"]
+description = "A package for unsupervised representation and principal component analysis of irregularly sampled time series with variable size relying on the shape analysis literature."
+readme = "README.md"
+license = { file = "LICENSE" }
+dynamic = ["version"]
+
+[tool.setuptools.dynamic]
+version = { attr = "src.__version__" }
+
+[tool.setuptools.packages.find]
+include = ["src"]
+
+[project.urls]
+Repository = "https://github.com/gaetanserre/seminars_msg_gen"# à changer
+
+[build-system]
+requires = ["setuptools", "toml"]
