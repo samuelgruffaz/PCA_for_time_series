@@ -1,0 +1,36 @@
+name: Publish Python package
+
+# Déclenche le workflow uniquement lors d'un tag vX.Y.Z
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Récupère le code du dépôt
+      - uses: actions/checkout@v3
+
+      # Installe Python
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      # Installe les outils pour builder et publier
+      - name: Install dependencies
+        run: pip install --upgrade build twine
+
+      # Construit le package (wheel + sdist)
+      - name: Build package
+        run: python -m build
+
+      # Publie sur PyPI en utilisant le token secret
+      - name: Publish package
+        uses: pypa/gh-action-pypi-publish@v1.6.0
+        with:
+          user: __token__
+          password: ${{ secrets.PYPI_API_TOKEN }}
