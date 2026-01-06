@@ -22,23 +22,3 @@ st.sidebar.success("Select a demo above.")
 # streamlit run Menu.py
 
 
-## PRENDRE JAX_ARM, dans le terminal : source JAX_ARM/bin/activate
-#/Users/samuelgruffaz/Documents/Thèse_vrai/metric_learning_attack/code/JAX_ARM/bin/activate
-#source /Users/samuelgruffaz/Documents/Thèse_vrai/metric_learning_attack/code/JAX_ARM/bin/activate
-# cd /Users/samuelgruffaz/Documents/Thèse_vrai/Thibaut_colab_PCA/test_streamlit
-
-# Améliorer le kernel avec le trick de Jean Feydy ?
-
-# Prendre la fonction barycentre
-
-#geomloss SRVF 
-# Article Siwan
-
-# regarder utils pour la doc
-
-
-# Possibilité de normaliser avec sinkhorn, poids au points en fonction de la tangente
-
-
-
-# Mettre la description au dessus des paramètres et écrire un minimu dans le return et parameters

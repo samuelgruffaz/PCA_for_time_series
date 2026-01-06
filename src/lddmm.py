@@ -100,9 +100,9 @@ def Shooting(K:callable,nt=10,deltat=1.):
         dpi,dqi = HSystem(pi,qi,q_mask)
         p,q = p+0.25*dt*(dp+3*dpi),q+0.25*dt*(dq+3*dqi)
         return p,q,q_mask
-    def f(p,q,q_mask):
-        p,q,q_mask = lax.fori_loop(0,nt,body_function,(p,q,q_mask))
-        return p,q 
+    def f(p,q0,q0_mask):
+        p,q0,q0_mask = lax.fori_loop(0,nt,body_function,(p,q0,q0_mask))
+        return p,q0
     return f
 
 

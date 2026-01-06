@@ -174,7 +174,7 @@ fig2.suptitle(" ",fontsize = ft_size)
 fig2.subplots_adjust(left=0.1,bottom=0.15,right=0.9,top=0.85,wspace=0.1,hspace=0.15)
 fig2.tight_layout()
 st.pyplot(fig2)
-st.write(r"Représentation des composantes kernelPCA associé à la représentation TS-LDDMM")
+st.write(r"kernelPCA components related to the TS-LDDMM representation")
 Feature_centered=Feature-Feature.mean(axis=0)
 coord=mpca.p_score_
 fig3,ax = plt.subplots(1,1,figsize = (6,4))
@@ -189,10 +189,11 @@ ax.set_ylabel('PC_1')
 
 fig3.tight_layout()
 st.pyplot(fig3)
-st.write(r"Les tailles de points varient en fonction du ratio de taille entre première et seconde bosse.")
-st.write(r"Les couleurs varient en fonction de la taille de la petite sinusoide à droite.")
+st.write(r"The point sizes vary according to the size ratio between the first and second peaks.")
+st.write(r"The colors vary according to the size of the small sinusoid on the right.")
 
-st.write(r"**L'exemple suivant fait la même chose avec PCA directement sur les signaux**")
+st.write(r"**The following example does the same using PCA directly on the signals**")
+
 from sklearn.decomposition import PCA
 
 pca = PCA(n_components=n_comp)
@@ -214,7 +215,7 @@ ax.set_xlabel('PC_0')
 ax.set_ylabel('PC_1')
 fig4.tight_layout()
 st.pyplot(fig4)
-st.write(r"Les coordonnés se superposent car les composantes apprennent difficilement les variations.")
+st.write(r"coordinates overlap because components doesn't learn the variations.")
 q0_b=np.reshape(X_D.mean(axis=0),(-1,2))
 
 fig5,axs = plt.subplots(n_comp,n_disp,figsize = (n_disp*3,n_comp*3),sharex=True,sharey=True)

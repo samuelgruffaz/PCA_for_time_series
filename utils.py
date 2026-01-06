@@ -15,7 +15,7 @@ import optax
 
 from src.lddmm import Shooting,batch_one_to_many_registration
 from src.utils import batch_dataset
-from src.loss import MomentaLoss
+from src.loss import _MomentaLoss
 
 
 
@@ -85,7 +85,7 @@ class TASExperiment:
         return vmap(self.dataloss,(0,0,0,0))(p_qs,p_qs_mask,t_qs,t_qs_mask)
     
     def _momenta_error(self,p_ps,t_ps): 
-        return vmap(MomentaLoss(self.Kv,self.q0,self.q0_mask),(0,0))(p_ps,t_ps)
+        return vmap(_MomentaLoss(self.Kv,self.q0,self.q0_mask),(0,0))(p_ps,t_ps)
     
     @property
     def varifold_error_(self): 
