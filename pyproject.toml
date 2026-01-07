@@ -14,9 +14,8 @@ description = "A package for unsupervised representation and principal component
 readme = "README.md"
 license = { file = "LICENSE" }
 dynamic = ["version"]
+version= "0.0.1"
 
-[tool.setuptools.dynamic]
-version = { attr = "src.__version__" }
 
 [tool.setuptools.packages.find]
 include = ["src"]

@@ -7,11 +7,12 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 import os
 import sys
+from toml import load
 sys.path.insert(0, os.path.abspath('../'))
 project = 'PCA_for_time_series'
 copyright = '2025, Samuel Gruffaz, Thibaut Germain'
 author = 'Samuel Gruffaz, Thibaut Germain'
-release = '0.0.1'
+release = load(os.path.abspath("../pyproject.toml"))["project"]["version"]
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
