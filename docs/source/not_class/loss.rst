@@ -1,7 +1,7 @@
 Loss 
 ====
 
-.. automodule:: src.loss
+.. automodule:: TS_PCA.loss
    :members:
    :show-inheritance:
    :undoc-members:

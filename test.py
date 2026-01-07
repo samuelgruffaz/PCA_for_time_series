@@ -1,3 +1,3 @@
-from src import Varifold_TSLDDMM_Gaussian_Kernel
+from TS_PCA import Varifold_TSLDDMM_Gaussian_Kernel
 
 print(Varifold_TSLDDMM_Gaussian_Kernel)

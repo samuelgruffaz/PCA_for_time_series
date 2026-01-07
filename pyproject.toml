@@ -18,7 +18,7 @@ version= "0.0.1"
 
 
 [tool.setuptools.packages.find]
-include = ["src"]
+include = ["TS_PCA"]
 
 [project.urls]
 Repository = "https://github.com/samuelgruffaz/PCA_for_time_series.git"# à changer
