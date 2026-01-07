@@ -172,7 +172,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
       </label>
     </div>
@@ -227,13 +227,98 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="kernels">
-<h1>Kernels<a class="headerlink" href="#kernels" title="Link to this heading">¶</a></h1>
+          <section id="module-src.kernel">
+<span id="kernels"></span><h1>Kernels<a class="headerlink" href="#module-src.kernel" title="Link to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.kernel.Varifold_TSLDDMM_Gaussian_Kernel">
+<span class="sig-prename descclassname"><span class="pre">src.kernel.</span></span><span class="sig-name descname"><span class="pre">Varifold_TSLDDMM_Gaussian_Kernel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t_sigma_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_sigma_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_sigma_2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_sigma_2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">np_dtype=&lt;class</span> <span class="pre">'numpy.float32'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.kernel.Varifold_TSLDDMM_Gaussian_Kernel" title="Link to this definition">¶</a></dt>
+<dd><p>Generate TS-LDDMM  Varifold kernel function,  using the notations of the paper “Shape analysis for time series”
+<span class="math notranslate nohighlight">\(k((x,v),(x',v'))=k_{\text{pos}}(x,x')k_{\text{dir}}(v,v')\)</span> where
+<span class="math notranslate nohighlight">\(k_{\text{pos}}((t,x),(t',x'))=K^{(1)}_{\sigma_{\text{pos},t}}(t,t')K^{(d)}_{\sigma_{\text{pos},x}}(x,x')\)</span>,
+<span class="math notranslate nohighlight">\(k_{\text{dir}}((t,x),(t',x'))=K^{(1)}_{\sigma_{\text{dir},t}}(t,t')K^{(d)}_{\sigma_{\text{dir},x}}(x,x')\)</span>
+and
+<span class="math notranslate nohighlight">\(K_{\sigma}^{(a)}(w,w')=\exp(-|w-w'|^2/\sigma))\)</span> the <span class="math notranslate nohighlight">\(a\)</span> dimensional isotropic Gaussian kernel of variance <span class="math notranslate nohighlight">\(\sigma\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>t_sigma_1</strong> (<em>(</em><em>float</em><em>)</em>) – variance of the kernel related to time coordinate of the kernel related to position <span class="math notranslate nohighlight">\(\sigma_{\text{pos},t}\)</span></p></li>
+<li><p><strong>s_sigma_1</strong> (<em>(</em><em>float</em><em>)</em>) – variance of the kernel related to space coordinate of the kernel related to position <span class="math notranslate nohighlight">\(\sigma_{\text{pos},x}\)</span></p></li>
+<li><p><strong>t_sigma_2</strong> (<em>(</em><em>float</em><em>)</em>) – variance of the kernel related to time coordinate of the kernel related to direction <span class="math notranslate nohighlight">\(\sigma_{\text{dir},t}\)</span></p></li>
+<li><p><strong>s_sigma_2</strong> (<em>(</em><em>float</em><em>)</em>) – variance of the kernel related to space coordinate of the kernel related to direction <span class="math notranslate nohighlight">\(\sigma_{\text{dir},x}\)</span></p></li>
+<li><p><strong>np_dtype</strong> (<em>(</em><em>_type_</em><em>, </em><em>optional</em><em>)</em><em>:</em>) – Defaults to np.float32.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>kernel function<span class="classifier">(X,mask_X,Y,mask_Y,b)-&gt; array of the shape of b</span></dt><dd><p><span class="math notranslate nohighlight">\(K(X,Y)b\)</span> where X and Y are array of size (n_samples,d+1), <span class="math notranslate nohighlight">\(K(X,Y)\)</span> is the kernel matrix <span class="math notranslate nohighlight">\((k(x_i,y_j))\)</span>
+and b is an array of shape (n_samples,d) with d the dimension of the problem</p>
+</dd>
+</dl>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.kernel.Velocity_TSLDDMM_Cauchy_Kernel">
+<span class="sig-prename descclassname"><span class="pre">src.kernel.</span></span><span class="sig-name descname"><span class="pre">Velocity_TSLDDMM_Cauchy_Kernel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_sigma_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_sigma_2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_sigma</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.kernel.Velocity_TSLDDMM_Cauchy_Kernel" title="Link to this definition">¶</a></dt>
+<dd><p>Function related to the velocity TSLDDMM cauchy kernel defined as, using the notations of the paper “Shape analysis for time series”
+<span class="math notranslate nohighlight">\(K_G((t,x),(t',x'))=\begin{pmatrix} c_0 K_{\text{time}}(t,t') &amp; 0 \\ 0&amp; c_1 K_{\text{space}}((t,x),(t',x'))\end{pmatrix}\)</span>
+with <span class="math notranslate nohighlight">\(K_{\text{time}}=K_{\sigma_{T,0}}^{(1)}(t,t'), \quad K_{\text{space}}=K_{\sigma_{T,1}}^{(1)}(t,t')K_{\sigma_{x}}^{(d)}(x,x')\)</span>
+and <span class="math notranslate nohighlight">\(K_{\sigma}^{(a)}(w,w')=\frac{1}{1+|w-w'|^2/\sigma)}\)</span> the <span class="math notranslate nohighlight">\(a\)</span> dimensional isotropic Cauchy kernel of variance <span class="math notranslate nohighlight">\(\sigma\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>c_0</strong> (<em>(</em><em>float</em><em>)</em>) – time scaling <span class="math notranslate nohighlight">\(c_0\)</span></p></li>
+<li><p><strong>c_1</strong> (<em>(</em><em>float</em><em>)</em>) – space scaling <span class="math notranslate nohighlight">\(c_1\)</span></p></li>
+<li><p><strong>t_sigma_1</strong> (<em>(</em><em>float</em><em>)</em>) – the time variance parameter 1 <span class="math notranslate nohighlight">\(\sigma_{T,0}\)</span></p></li>
+<li><p><strong>t_sigma_2</strong> (<em>(</em><em>float</em><em>)</em>) – the time variance parameter 2 <span class="math notranslate nohighlight">\(\sigma_{T,1}\)</span></p></li>
+<li><p><strong>s_sigma</strong> (<em>(</em><em>float</em><em>)</em>) – the space variance parameter <span class="math notranslate nohighlight">\(\sigma_{x}\)</span></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>kernel function<span class="classifier">(X,mask_X,Y,mask_Y,b)-&gt; array of the shape of b</span></dt><dd><p><span class="math notranslate nohighlight">\(K_G(X,Y)b\)</span> where X and Y are array of size (n_samples,d+1), <span class="math notranslate nohighlight">\(K(X,Y)\)</span> is the kernel matrix <span class="math notranslate nohighlight">\((k(x_i,y_j))\)</span>
+and b is an array of shape (d,) with d the dimension of the problem</p>
+</dd>
+</dl>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.kernel.Velocity_TSLDDMM_Gaussian_Kernel">
+<span class="sig-prename descclassname"><span class="pre">src.kernel.</span></span><span class="sig-name descname"><span class="pre">Velocity_TSLDDMM_Gaussian_Kernel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_sigma_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_sigma_2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_sigma</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.kernel.Velocity_TSLDDMM_Gaussian_Kernel" title="Link to this definition">¶</a></dt>
+<dd><p>Function related to the velocity TSLDDMM gaussian kernel defined as,  using the notations of the paper “Shape analysis for time series” <span class="math notranslate nohighlight">\(K_G((t,x),(t',x'))=\begin{pmatrix} c_0 K_{\text{time}}(t,t') &amp; 0 \\ 0&amp; c_1 K_{\text{space}}((t,x),(t',x'))\end{pmatrix}\)</span>
+with <span class="math notranslate nohighlight">\(K_{\text{time}}=K_{\sigma_{T,0}}^{(1)}(t,t'), \quad K_{\text{space}}=K_{\sigma_{T,1}}^{(1)}(t,t')K_{\sigma_{x}}^{(d)}(x,x')\)</span>
+and <span class="math notranslate nohighlight">\(K_{\sigma}^{(a)}(w,w')=\exp(-|w-w'|^2/\sigma))\)</span> the <span class="math notranslate nohighlight">\(a\)</span> dimensional isotropic Gaussian kernel of variance <span class="math notranslate nohighlight">\(\sigma\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>c_0</strong> (<em>(</em><em>float</em><em>)</em>) – time scaling <span class="math notranslate nohighlight">\(c_0\)</span></p></li>
+<li><p><strong>c_1</strong> (<em>(</em><em>float</em><em>)</em>) – space scaling <span class="math notranslate nohighlight">\(c_1\)</span></p></li>
+<li><p><strong>t_sigma_1</strong> (<em>(</em><em>float</em><em>)</em>) – the time variance parameter 1 <span class="math notranslate nohighlight">\(\sigma_{T,0}\)</span></p></li>
+<li><p><strong>t_sigma_2</strong> (<em>(</em><em>float</em><em>)</em>) – the time variance parameter 2 <span class="math notranslate nohighlight">\(\sigma_{T,1}\)</span></p></li>
+<li><p><strong>s_sigma</strong> (<em>(</em><em>float</em><em>)</em>) – the space variance parameter <span class="math notranslate nohighlight">\(\sigma_{x}\)</span></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>kernel function<span class="classifier">(X,mask_X,Y,mask_Y,b)-&gt; array of the shape of b</span></dt><dd><p><span class="math notranslate nohighlight">\(K_G(X,Y)b\)</span> where X and Y are array of size (n_samples,d+1), <span class="math notranslate nohighlight">\(K(X,Y)\)</span> is the kernel matrix <span class="math notranslate nohighlight">\((k(x_i,y_j))\)</span>
+and b is an array of shape (d,) with d the dimension of the problem</p>
+</dd>
+</dl>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 
         </article>
@@ -279,8 +364,29 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Kernels</a><ul>
+<li><a class="reference internal" href="#src.kernel.Varifold_TSLDDMM_Gaussian_Kernel"><code class="docutils literal notranslate"><span class="pre">Varifold_TSLDDMM_Gaussian_Kernel()</span></code></a></li>
+<li><a class="reference internal" href="#src.kernel.Velocity_TSLDDMM_Cauchy_Kernel"><code class="docutils literal notranslate"><span class="pre">Velocity_TSLDDMM_Cauchy_Kernel()</span></code></a></li>
+<li><a class="reference internal" href="#src.kernel.Velocity_TSLDDMM_Gaussian_Kernel"><code class="docutils literal notranslate"><span class="pre">Velocity_TSLDDMM_Gaussian_Kernel()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
@@ -289,5 +395,6 @@
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </body>
 </html>

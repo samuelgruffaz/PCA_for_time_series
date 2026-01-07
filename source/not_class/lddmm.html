@@ -172,7 +172,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
       </label>
     </div>
@@ -227,13 +227,266 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="lddmm-functions">
-<h1>LDDMM functions<a class="headerlink" href="#lddmm-functions" title="Link to this heading">¶</a></h1>
+          <section id="module-src.lddmm">
+<span id="lddmm-functions"></span><h1>LDDMM functions<a class="headerlink" href="#module-src.lddmm" title="Link to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.lddmm.DeformationGradient">
+<span class="sig-prename descclassname"><span class="pre">src.lddmm.</span></span><span class="sig-name descname"><span class="pre">DeformationGradient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">K</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deltat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.lddmm.DeformationGradient" title="Link to this definition">¶</a></dt>
+<dd><p>Return the gradient of the exponential map according to the starting points</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>function</strong> (<em>Kernel</em>) – The Velocity kernel function (ideally the one given by TS-LDDMM)</p></li>
+<li><p><strong>nt</strong> (<em>int</em>) – number of integration time points, default=10</p></li>
+<li><p><strong>delta</strong> (<em>float</em>) – total time of integration <span class="math notranslate nohighlight">\(\delta\)</span>, stepsize=deltat/nt, default to 1</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Gradient : (P,X,X_mask)-&gt;Jacobian_position(Shooting(K,nt,deltat))
+<span class="math notranslate nohighlight">\(\nabla_X \exp_X(P)\)</span> where X is an array of size (n_samples,d+1),
+and P are the momentums, it’s an array of size (n_samples,d+1). <span class="math notranslate nohighlight">\(\exp_X\)</span> is the exponential map which is computed by integrating the Hamiltonian system
+using the Ralston integrator on nt points. Also called shooting function.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.lddmm.Flowing">
+<span class="sig-prename descclassname"><span class="pre">src.lddmm.</span></span><span class="sig-name descname"><span class="pre">Flowing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">K</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deltat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.lddmm.Flowing" title="Link to this definition">¶</a></dt>
+<dd><p>Return the Exponential map function related to the kernel K that map as well a grid</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>function</strong> (<em>Kernel</em>) – The Velocity kernel function (ideally the one given by TS-LDDMM)</p></li>
+<li><p><strong>nt</strong> (<em>int</em>) – number of integration time points</p></li>
+<li><p><strong>deltat</strong> (<em>float</em>) – total time of integration <span class="math notranslate nohighlight">\(\delta\)</span>, stepsize=deltat/nt</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Exponential flow function, taking a grid as well in input : (Grid,P,X,mask_X)-&gt; (Grid_shooted,Exp_X(deltat P),Exp_X’(deltat P))
+<span class="math notranslate nohighlight">\((Grid_shooted,\exp_X(\delta P),\exp_X'(\delta P))\)</span> where X is an array of size (n_samples,d+1),
+and P are the momentums, it’s an array of size (n_samples,d+1),
+Grid is another array that may be different than X, Grid_shooted is its final position after flowing by using the integrated velocity. The exponential map is computed by integrating the Hamiltonian system
+using the Ralston integrator. Also called shooting function.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.lddmm.Hamiltonian">
+<span class="sig-prename descclassname"><span class="pre">src.lddmm.</span></span><span class="sig-name descname"><span class="pre">Hamiltonian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">K</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.lddmm.Hamiltonian" title="Link to this definition">¶</a></dt>
+<dd><p>Return the Hamiltonian function related to the kernel K</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>function</strong> (<em>Kernel</em>) – The Velocity kernel function (ideally the one given by TS-LDDMM)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Hamiltonian function : (P,X,mask_X)-&gt; float
+<span class="math notranslate nohighlight">\(P^\top K(X,X)P/2\)</span> where X is an array of size (n_samples,d+1), and <span class="math notranslate nohighlight">\(K(X,X)\)</span> is the kernel matrix <span class="math notranslate nohighlight">\((k(x_i,x_j))\)</span>
+and P are the momentums, it’s an array of size (n_samples,d+1)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.lddmm.HamiltonianSystem">
+<span class="sig-prename descclassname"><span class="pre">src.lddmm.</span></span><span class="sig-name descname"><span class="pre">HamiltonianSystem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">K</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.lddmm.HamiltonianSystem" title="Link to this definition">¶</a></dt>
+<dd><p>Return the Hamiltonian system function related to the kernel K</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>function</strong> (<em>Kernel</em>) – The Velocity kernel function (ideally the one given by TS-LDDMM)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Hamiltonian system function : (P,X,mask_X)-&gt; (-grad_H_pos,grad_H_momen)
+<span class="math notranslate nohighlight">\((-\nabla_X H(X,P),\nabla_P H(X,P))\)</span> where X is an array of size (n_samples,d+1), and <span class="math notranslate nohighlight">\(K(X,X)\)</span> is the kernel matrix <span class="math notranslate nohighlight">\((k(x_i,x_j))\)</span>
+and P are the momentums, it’s an array of size (n_samples,d+1)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.lddmm.LDDMMLoss">
+<span class="sig-prename descclassname"><span class="pre">src.lddmm.</span></span><span class="sig-name descname"><span class="pre">LDDMMLoss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">K</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataloss</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deltat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.lddmm.LDDMMLoss" title="Link to this definition">¶</a></dt>
+<dd><p>Return the Loss function related to a registration problem</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>function</strong> (<em>Kernel</em>) – The Velocity kernel function (ideally the one given by TS-LDDMM)</p></li>
+<li><p><strong>dataloss</strong> (<em>(</em><em>X</em><em>,</em><em>X_mask</em><em>,</em><em>Y</em><em>,</em><em>Y_mask</em><em>)</em><em>-&gt;float</em>) – the attachment loss function, typically a varifold loss</p></li>
+<li><p><strong>gamma</strong> (<em>float</em>) – regularization constant related to the norm of the initial velocity</p></li>
+<li><p><strong>nt</strong> (<em>int</em>) – number of integration time points, default=10</p></li>
+<li><p><strong>delta</strong> (<em>float</em>) – total time of integration <span class="math notranslate nohighlight">\(\delta\)</span>, stepsize=deltat/nt, default to 1</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>LDDMM registration loss : (P,X,X_mask,Y,Y_mask)-&gt;float
+<span class="math notranslate nohighlight">\(\gamma |v_0|_{\mathsf{V}}+\mathcal{L}(\phi^{v_0}\cdot X,Y)\)</span> where X is an array of size (n_samples,d+1),
+and P are the momentums, it’s an array of size (n_samples,d+1). <span class="math notranslate nohighlight">\(\phi^{v_0}=\exp_X(P)\)</span> is the exponential map which is computed by integrating the Hamiltonian system
+using the Ralston integrator on nt points. Also called shooting function.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.lddmm.Shooting">
+<span class="sig-prename descclassname"><span class="pre">src.lddmm.</span></span><span class="sig-name descname"><span class="pre">Shooting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">K</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deltat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.lddmm.Shooting" title="Link to this definition">¶</a></dt>
+<dd><p>Return the Hamiltonian system function related to the kernel K</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>function</strong> (<em>Kernel</em>) – The Velocity kernel function (ideally the one given by TS-LDDMM)</p></li>
+<li><p><strong>nt</strong> (<em>int</em>) – number of integration time points</p></li>
+<li><p><strong>deltat</strong> (<em>float</em>) – total time of integration <span class="math notranslate nohighlight">\(\delta\)</span>, stepsize=deltat/nt</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Exponential flow function : (P,X,mask_X)-&gt; (Exp_X(deltat P),Exp_X’(deltat P))
+<span class="math notranslate nohighlight">\((\exp_X(\delta P),\exp_X'(\delta P))\)</span> where X is an array of size (n_samples,d+1),
+and P are the momentums, it’s an array of size (n_samples,d+1). The exponential map is computed by integrating the Hamiltonian system
+using the Ralston integrator. Also called shooting function.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.lddmm.batch_one_to_many_registration">
+<span class="sig-prename descclassname"><span class="pre">src.lddmm.</span></span><span class="sig-name descname"><span class="pre">batch_one_to_many_registration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q0_mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batched_q1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batched_q1_mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Kv</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataloss</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batched_p0=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma_loss=0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">niter=100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer=(&lt;function</span> <span class="pre">chain.&lt;locals&gt;.init_fn&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">&lt;function</span> <span class="pre">chain.&lt;locals&gt;.update_fn&gt;)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nt=10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deltat=1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream_bool=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream_object=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.lddmm.batch_one_to_many_registration" title="Link to this definition">¶</a></dt>
+<dd><p>Return the momentums (p^i) such that the hamiltonian dynamics starting from any (q_0,p_i) reach approximately (q_1,p^i_1) at time t=1, the shooting problem is performed by minimizing the LDDMM loss defined previously</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>q0</strong> (<em>array</em><em> of </em><em>shape</em><em> (</em><em>n_samples</em><em>,</em><em>d+1</em><em>)</em>) – initial time series’ graph</p></li>
+<li><p><strong>q0_mask</strong> (<em>array</em><em> of </em><em>shape</em><em> (</em><em>n_samples</em><em>,</em><em>1</em><em>)</em>) – initial time series’ graph mask</p></li>
+<li><p><strong>batched_q1</strong> (<em>array</em><em> of </em><em>shape</em><em> (</em><em>N_timeseries</em><em>,</em><em>batch_size</em><em>,</em><em>n_samples</em><em>,</em><em>d+1</em><em>)</em>) – target time series’ graphs, in practice batch_size is set to 1</p></li>
+<li><p><strong>batched_q1_mask</strong> (<em>array</em><em> of </em><em>shape</em><em> (</em><em>N_timeseries</em><em>,</em><em>batch_size</em><em>,</em><em>n_samples</em><em>,</em><em>1</em><em>)</em>) – target time series’ graphs mask</p></li>
+<li><p><strong>Kv</strong> (<em>(</em><em>X</em><em>,</em><em>mask_X</em><em>,</em><em>Y</em><em>,</em><em>mask_Y</em><em>,</em><em>b</em><em>)</em><em>-&gt; shape</em><em> of </em><em>b</em>) – The Velocity kernel function (ideally the one given by TS-LDDMM)</p></li>
+<li><p><strong>dataloss</strong> (<em>(</em><em>X</em><em>,</em><em>X_mask</em><em>,</em><em>Y</em><em>,</em><em>Y_mask</em><em>)</em><em>-&gt;float</em>) – the attachment loss function, typically a varifold loss</p></li>
+<li><p><strong>p0</strong> (<em>array</em><em> of </em><em>shape</em><em> (</em><em>n_samples</em><em>,</em><em>d+1</em><em>)</em>) – initial time series’ graph momentum (facultative)</p></li>
+<li><p><strong>gamma_loss</strong> (<em>float</em>) – regularization constant related to the norm of the initial velocity</p></li>
+<li><p><strong>niter</strong> (<em>int</em>) – number of iterations for the optimizer</p></li>
+<li><p><strong>optimizer</strong> (<em>optimize object from optax</em>) – Default to optax.adabelief(learning_rate=0.1)</p></li>
+<li><p><strong>nt</strong> (<em>int</em>) – number of integration time points, default=10</p></li>
+<li><p><strong>delta</strong> (<em>float</em>) – total time of integration <span class="math notranslate nohighlight">\(\delta\)</span>, stepsize=deltat/nt, default to 1</p></li>
+<li><p><strong>verbose</strong> (<em>Boolean</em>) – Default to True, print loss every 10 iterations</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>batched_p</strong> (<em>array of shape (n_samples,d+1)</em>) – momentums minimizing the LDDMM loss related to the multiple shooting problems</p></li>
+<li><p><strong>q0</strong> (<em>array of shape (n_samples,d+1)</em>) – initial time series’ graph</p></li>
+<li><p><strong>q0_mask</strong> (<em>array of shape (n_samples,1)</em>) – initial time series’ graph mask</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.lddmm.batch_one_to_many_varifold_registration">
+<span class="sig-prename descclassname"><span class="pre">src.lddmm.</span></span><span class="sig-name descname"><span class="pre">batch_one_to_many_varifold_registration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q0_mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batched_q1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batched_q1_mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Kv</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Kl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batched_p0=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma_loss=0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">niter=100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer=(&lt;function</span> <span class="pre">chain.&lt;locals&gt;.init_fn&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">&lt;function</span> <span class="pre">chain.&lt;locals&gt;.update_fn&gt;)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nt=10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deltat=1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream_bool=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream_object=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.lddmm.batch_one_to_many_varifold_registration" title="Link to this definition">¶</a></dt>
+<dd><p>Return the momentums (p^i) such that the hamiltonian dynamics starting from any (q_0,p_i) reach approximately (q_1,p^i_1) at time t=1, the shooting problem is performed by minimizing the LDDMM loss defined previously</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>q0</strong> (<em>array</em><em> of </em><em>shape</em><em> (</em><em>n_samples</em><em>,</em><em>d+1</em><em>)</em>) – initial time series’ graph</p></li>
+<li><p><strong>q0_mask</strong> (<em>array</em><em> of </em><em>shape</em><em> (</em><em>n_samples</em><em>,</em><em>1</em><em>)</em>) – initial time series’ graph mask</p></li>
+<li><p><strong>batched_q1</strong> (<em>array</em><em> of </em><em>shape</em><em> (</em><em>N_timeseries</em><em>,</em><em>batch_size</em><em>,</em><em>n_samples</em><em>,</em><em>d+1</em><em>)</em>) – target time series’ graphs, in practice batch_size is set to 1</p></li>
+<li><p><strong>batched_q1_mask</strong> (<em>array</em><em> of </em><em>shape</em><em> (</em><em>N_timeseries</em><em>,</em><em>batch_size</em><em>,</em><em>n_samples</em><em>,</em><em>1</em><em>)</em>) – target time series’ graphs mask</p></li>
+<li><p><strong>Kv</strong> (<em>(</em><em>X</em><em>,</em><em>mask_X</em><em>,</em><em>Y</em><em>,</em><em>mask_Y</em><em>,</em><em>b</em><em>)</em><em>-&gt; shape</em><em> of </em><em>b</em>) – The Velocity kernel function (ideally the one given by TS-LDDMM)</p></li>
+<li><p><strong>Kl</strong> (<em>(</em><em>X</em><em>,</em><em>mask_X</em><em>,</em><em>Y</em><em>,</em><em>mask_Y</em><em>,</em><em>b</em><em>)</em><em>-&gt; array</em><em> of </em><em>the shape</em><em> of </em><em>b</em>) – The Varifold kernel function. <span class="math notranslate nohighlight">\(K(X,Y)b\)</span> where X and Y are array of size (n_samples,d+1), <span class="math notranslate nohighlight">\(K(X,Y)\)</span> is the kernel matrix <span class="math notranslate nohighlight">\((k(x_i,y_j))\)</span>
+and b is an array of shape (n_samples,d) with d the dimension of the problem</p></li>
+<li><p><strong>p0</strong> (<em>array</em><em> of </em><em>shape</em><em> (</em><em>n_samples</em><em>,</em><em>d+1</em><em>)</em>) – initial time series’ graph momentum (facultative)</p></li>
+<li><p><strong>gamma_loss</strong> (<em>float</em>) – regularization constant related to the norm of the initial velocity</p></li>
+<li><p><strong>niter</strong> (<em>int</em>) – number of iterations for the optimizer</p></li>
+<li><p><strong>optimizer</strong> (<em>optimize object from optax</em>) – Default to optax.adabelief(learning_rate=0.1)</p></li>
+<li><p><strong>nt</strong> (<em>int</em>) – number of integration time points, default=10</p></li>
+<li><p><strong>delta</strong> (<em>float</em>) – total time of integration <span class="math notranslate nohighlight">\(\delta\)</span>, stepsize=deltat/nt, default to 1</p></li>
+<li><p><strong>verbose</strong> (<em>Boolean</em>) – Default to True, print loss every 10 iterations</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>batched_p</strong> (<em>array of shape (n_samples,d+1)</em>) – initial momentums minimizing the LDDMM loss related to the multiple shooting problems</p></li>
+<li><p><strong>q0</strong> (<em>array of shape (n_samples,d+1)</em>) – initial time series’ graph</p></li>
+<li><p><strong>q0_mask</strong> (<em>array of shape (n_samples,1)</em>) – initial time series’ graph mask</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.lddmm.registration">
+<span class="sig-prename descclassname"><span class="pre">src.lddmm.</span></span><span class="sig-name descname"><span class="pre">registration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q0_mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q1_mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Kv</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataloss</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma_loss=0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">niter=100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer=(&lt;function</span> <span class="pre">chain.&lt;locals&gt;.init_fn&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">&lt;function</span> <span class="pre">chain.&lt;locals&gt;.update_fn&gt;)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nt=10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deltat=1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream_bool=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream_object=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.lddmm.registration" title="Link to this definition">¶</a></dt>
+<dd><p>Return the momentum p such that the hamiltonian dynamics starting from (q_0,p) reach approximately (q_1,p_1) at time t=1, the shooting problem is performed by minimizing the LDDMM loss defined previously</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>q0</strong> (<em>array</em><em> of </em><em>shape</em><em> (</em><em>n_samples</em><em>,</em><em>d+1</em><em>)</em>) – initial time series’ graph</p></li>
+<li><p><strong>q0_mask</strong> (<em>array</em><em> of </em><em>shape</em><em> (</em><em>n_samples</em><em>,</em><em>1</em><em>)</em>) – initial time series’ graph mask</p></li>
+<li><p><strong>q1</strong> (<em>array</em><em> of </em><em>shape</em><em> (</em><em>n_samples</em><em>,</em><em>d+1</em><em>)</em>) – target time series’ graph</p></li>
+<li><p><strong>q1_mask</strong> (<em>array</em><em> of </em><em>shape</em><em> (</em><em>n_samples</em><em>,</em><em>1</em><em>)</em>) – target time series’ graph mask</p></li>
+<li><p><strong>Kv</strong> (<em>(</em><em>X</em><em>,</em><em>mask_X</em><em>,</em><em>Y</em><em>,</em><em>mask_Y</em><em>,</em><em>b</em><em>)</em><em>-&gt; shape</em><em> of </em><em>b</em>) – The Velocity kernel function (ideally the one given by TS-LDDMM)</p></li>
+<li><p><strong>dataloss</strong> (<em>(</em><em>X</em><em>,</em><em>X_mask</em><em>,</em><em>Y</em><em>,</em><em>Y_mask</em><em>)</em><em>-&gt;float</em>) – the attachment loss function, typically a varifold loss</p></li>
+<li><p><strong>p0</strong> (<em>array</em><em> of </em><em>shape</em><em> (</em><em>n_samples</em><em>,</em><em>d+1</em><em>)</em>) – initial time series’ graph momentum (facultative)</p></li>
+<li><p><strong>gamma_loss</strong> (<em>float</em>) – regularization constant related to the norm of the initial velocity</p></li>
+<li><p><strong>niter</strong> (<em>int</em>) – number of iterations for the optimizer</p></li>
+<li><p><strong>optimizer</strong> (<em>optimize object from optax</em>) – Default to optax.adabelief(learning_rate=0.1)</p></li>
+<li><p><strong>nt</strong> (<em>int</em>) – number of integration time points, default=10</p></li>
+<li><p><strong>delta</strong> (<em>float</em>) – total time of integration <span class="math notranslate nohighlight">\(\delta\)</span>, stepsize=deltat/nt, default to 1</p></li>
+<li><p><strong>verbose</strong> (<em>Boolean</em>) – Default to True, print loss every 10 iterations</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>p</strong> (<em>array of shape (n_samples,d+1)</em>) – initial momentum minimizing the LDDMM loss related to the shooting problem</p></li>
+<li><p><strong>q0</strong> (<em>array of shape (n_samples,d+1)</em>) – initial time series’ graph</p></li>
+<li><p><strong>q0_mask</strong> (<em>array of shape (n_samples,1)</em>) – initial time series’ graph mask</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.lddmm.varifold_registration">
+<span class="sig-prename descclassname"><span class="pre">src.lddmm.</span></span><span class="sig-name descname"><span class="pre">varifold_registration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q0_mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q1_mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Kv</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Kl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma_loss=0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">niter=100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer=(&lt;function</span> <span class="pre">chain.&lt;locals&gt;.init_fn&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">&lt;function</span> <span class="pre">chain.&lt;locals&gt;.update_fn&gt;)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nt=10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deltat=1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream_bool=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream_object=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.lddmm.varifold_registration" title="Link to this definition">¶</a></dt>
+<dd><p>Return the momentum p such that the hamiltonian dynamics starting from (q_0,p) reach approximately (q_1,p_1) at time t=1, the shooting problem is performed by minimizing the LDDMM loss defined previously</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>q0</strong> (<em>array</em><em> of </em><em>shape</em><em> (</em><em>n_samples</em><em>,</em><em>d+1</em><em>)</em>) – initial time series’ graph</p></li>
+<li><p><strong>q0_mask</strong> (<em>array</em><em> of </em><em>shape</em><em> (</em><em>n_samples</em><em>,</em><em>1</em><em>)</em>) – initial time series’ graph mask</p></li>
+<li><p><strong>q1</strong> (<em>array</em><em> of </em><em>shape</em><em> (</em><em>n_samples</em><em>,</em><em>d+1</em><em>)</em>) – target time series’ graph</p></li>
+<li><p><strong>q1_mask</strong> (<em>array</em><em> of </em><em>shape</em><em> (</em><em>n_samples</em><em>,</em><em>1</em><em>)</em>) – target time series’ graph mask</p></li>
+<li><p><strong>Kv</strong> (<em>(</em><em>X</em><em>,</em><em>mask_X</em><em>,</em><em>Y</em><em>,</em><em>mask_Y</em><em>,</em><em>b</em><em>)</em><em>-&gt; shape</em><em> of </em><em>b</em>) – The Velocity kernel function (ideally the one given by TS-LDDMM)</p></li>
+<li><p><strong>Kl</strong> (<em>(</em><em>X</em><em>,</em><em>mask_X</em><em>,</em><em>Y</em><em>,</em><em>mask_Y</em><em>,</em><em>b</em><em>)</em><em>-&gt; array</em><em> of </em><em>the shape</em><em> of </em><em>b</em>) – The Varifold kernel function. <span class="math notranslate nohighlight">\(K(X,Y)b\)</span> where X and Y are array of size (n_samples,d+1), <span class="math notranslate nohighlight">\(K(X,Y)\)</span> is the kernel matrix <span class="math notranslate nohighlight">\((k(x_i,y_j))\)</span>
+and b is an array of shape (n_samples,d) with d the dimension of the problem</p></li>
+<li><p><strong>p0</strong> (<em>array</em><em> of </em><em>shape</em><em> (</em><em>n_samples</em><em>,</em><em>d+1</em><em>)</em>) – initial time series’ graph momentum (facultative)</p></li>
+<li><p><strong>gamma_loss</strong> (<em>float</em>) – regularization constant related to the norm of the initial velocity</p></li>
+<li><p><strong>niter</strong> (<em>int</em>) – number of iterations for the optimizer</p></li>
+<li><p><strong>optimizer</strong> (<em>optimize object from optax</em>) – Default to optax.adabelief(learning_rate=0.1)</p></li>
+<li><p><strong>nt</strong> (<em>int</em>) – number of integration time points, default=10</p></li>
+<li><p><strong>delta</strong> (<em>float</em>) – total time of integration <span class="math notranslate nohighlight">\(\delta\)</span>, stepsize=deltat/nt, default to 1</p></li>
+<li><p><strong>verbose</strong> (<em>Boolean</em>) – Default to True, print loss every 10 iterations</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>p</strong> (<em>array of shape (n_samples,d+1)</em>) – initial momentum minimizing the LDDMM loss related to the shooting problem using the varifold loss as data attachment term</p></li>
+<li><p><strong>q0</strong> (<em>array of shape (n_samples,d+1)</em>) – initial time series’ graph</p></li>
+<li><p><strong>q0_mask</strong> (<em>array of shape (n_samples,1)</em>) – initial time series’ graph mask</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 
         </article>
@@ -279,8 +532,36 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">LDDMM functions</a><ul>
+<li><a class="reference internal" href="#src.lddmm.DeformationGradient"><code class="docutils literal notranslate"><span class="pre">DeformationGradient()</span></code></a></li>
+<li><a class="reference internal" href="#src.lddmm.Flowing"><code class="docutils literal notranslate"><span class="pre">Flowing()</span></code></a></li>
+<li><a class="reference internal" href="#src.lddmm.Hamiltonian"><code class="docutils literal notranslate"><span class="pre">Hamiltonian()</span></code></a></li>
+<li><a class="reference internal" href="#src.lddmm.HamiltonianSystem"><code class="docutils literal notranslate"><span class="pre">HamiltonianSystem()</span></code></a></li>
+<li><a class="reference internal" href="#src.lddmm.LDDMMLoss"><code class="docutils literal notranslate"><span class="pre">LDDMMLoss()</span></code></a></li>
+<li><a class="reference internal" href="#src.lddmm.Shooting"><code class="docutils literal notranslate"><span class="pre">Shooting()</span></code></a></li>
+<li><a class="reference internal" href="#src.lddmm.batch_one_to_many_registration"><code class="docutils literal notranslate"><span class="pre">batch_one_to_many_registration()</span></code></a></li>
+<li><a class="reference internal" href="#src.lddmm.batch_one_to_many_varifold_registration"><code class="docutils literal notranslate"><span class="pre">batch_one_to_many_varifold_registration()</span></code></a></li>
+<li><a class="reference internal" href="#src.lddmm.registration"><code class="docutils literal notranslate"><span class="pre">registration()</span></code></a></li>
+<li><a class="reference internal" href="#src.lddmm.varifold_registration"><code class="docutils literal notranslate"><span class="pre">varifold_registration()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
@@ -289,5 +570,6 @@
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </body>
 </html>

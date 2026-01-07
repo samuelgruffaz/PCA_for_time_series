@@ -172,7 +172,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
       </label>
     </div>
@@ -227,13 +227,53 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="loss">
-<h1>Loss<a class="headerlink" href="#loss" title="Link to this heading">¶</a></h1>
+          <section id="module-src.loss">
+<span id="loss"></span><h1>Loss<a class="headerlink" href="#module-src.loss" title="Link to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.loss.SumVarifoldLoss">
+<span class="sig-prename descclassname"><span class="pre">src.loss.</span></span><span class="sig-name descname"><span class="pre">SumVarifoldLoss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">K_lst</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.loss.SumVarifoldLoss" title="Link to this definition">¶</a></dt>
+<dd><p>Generate a sum of Varifold loss function related to the given varifold kernels</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>K_lst</strong> (<em>list</em><em> of </em><em>kernel functions</em><em> (</em><em>X</em><em>,</em><em>mask_X</em><em>,</em><em>Y</em><em>,</em><em>mask_Y</em><em>,</em><em>b</em><em>)</em><em>-&gt; array</em><em> of </em><em>the shape</em><em> of </em><em>b</em>) – <span class="math notranslate nohighlight">\(K(X,Y)b\)</span> where X and Y are array of size (n_samples,d+1), <span class="math notranslate nohighlight">\(K(X,Y)\)</span> is the kernel matrix <span class="math notranslate nohighlight">\((k(x_i,y_j))\)</span>
+and b is an array of shape (n_samples,d) with d the dimension of the problem</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>Sum of Varifoldloss<span class="classifier">(s_x,mask_s_x,t_x,mask_t_x)-&gt;float</span></dt><dd><p>where s_x,t_x are time series graph (array of size (n_samples,d+1))
+and mask_s_x,mask_t_x are time series graph mask (array of size (n_samples,1))</p>
+</dd>
+</dl>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.loss.VarifoldLoss">
+<span class="sig-prename descclassname"><span class="pre">src.loss.</span></span><span class="sig-name descname"><span class="pre">VarifoldLoss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">K</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.loss.VarifoldLoss" title="Link to this definition">¶</a></dt>
+<dd><p>Generate Varifold loss function related to the given varifold kernel</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>K</strong> (<em>kernel function</em><em> (</em><em>X</em><em>,</em><em>mask_X</em><em>,</em><em>Y</em><em>,</em><em>mask_Y</em><em>,</em><em>b</em><em>)</em><em>-&gt; array</em><em> of </em><em>the shape</em><em> of </em><em>b</em>) – <span class="math notranslate nohighlight">\(K(X,Y)b\)</span> where X and Y are array of size (n_samples,d+1), <span class="math notranslate nohighlight">\(K(X,Y)\)</span> is the kernel matrix <span class="math notranslate nohighlight">\((k(x_i,y_j))\)</span>
+and b is an array of shape (n_samples,d) with d the dimension of the problem</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>Varifoldloss<span class="classifier">(s_x,mask_s_x,t_x,mask_t_x)-&gt;float</span></dt><dd><p>where s_x,t_x are time series graph (array of size (n_samples,d+1))
+and mask_s_x,mask_t_x are time series graph mask (array of size (n_samples,1))</p>
+</dd>
+</dl>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 
         </article>
@@ -271,8 +311,28 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Loss</a><ul>
+<li><a class="reference internal" href="#src.loss.SumVarifoldLoss"><code class="docutils literal notranslate"><span class="pre">SumVarifoldLoss()</span></code></a></li>
+<li><a class="reference internal" href="#src.loss.VarifoldLoss"><code class="docutils literal notranslate"><span class="pre">VarifoldLoss()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
@@ -281,5 +341,6 @@
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </body>
 </html>
