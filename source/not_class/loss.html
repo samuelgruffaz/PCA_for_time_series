@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../../genindex.html"><link rel="search" title="Search" href="../../search.html"><link rel="prev" title="LDDMM functions" href="lddmm.html">
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2025.12.19 -->
-        <title>Loss - PCA_for_time_series 0.0.1 documentation</title>
+        <title>Loss - PCA_for_time_series 0.0.2 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
@@ -161,7 +161,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../index.html"><div class="brand">PCA_for_time_series 0.0.1 documentation</div></a>
+      <a href="../../index.html"><div class="brand">PCA_for_time_series 0.0.2 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -182,7 +182,7 @@
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
   
-  <span class="sidebar-brand-text">PCA_for_time_series 0.0.1 documentation</span>
+  <span class="sidebar-brand-text">PCA_for_time_series 0.0.2 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -232,11 +232,11 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="module-src.loss">
-<span id="loss"></span><h1>Loss<a class="headerlink" href="#module-src.loss" title="Link to this heading">¶</a></h1>
+          <section id="module-TS_PCA.loss">
+<span id="loss"></span><h1>Loss<a class="headerlink" href="#module-TS_PCA.loss" title="Link to this heading">¶</a></h1>
 <dl class="py function">
-<dt class="sig sig-object py" id="src.loss.SumVarifoldLoss">
-<span class="sig-prename descclassname"><span class="pre">src.loss.</span></span><span class="sig-name descname"><span class="pre">SumVarifoldLoss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">K_lst</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.loss.SumVarifoldLoss" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="TS_PCA.loss.SumVarifoldLoss">
+<span class="sig-prename descclassname"><span class="pre">TS_PCA.loss.</span></span><span class="sig-name descname"><span class="pre">SumVarifoldLoss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">K_lst</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#TS_PCA.loss.SumVarifoldLoss" title="Link to this definition">¶</a></dt>
 <dd><p>Generate a sum of Varifold loss function related to the given varifold kernels</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -255,8 +255,8 @@ and mask_s_x,mask_t_x are time series graph mask (array of size (n_samples,1))</
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="src.loss.VarifoldLoss">
-<span class="sig-prename descclassname"><span class="pre">src.loss.</span></span><span class="sig-name descname"><span class="pre">VarifoldLoss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">K</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.loss.VarifoldLoss" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="TS_PCA.loss.VarifoldLoss">
+<span class="sig-prename descclassname"><span class="pre">TS_PCA.loss.</span></span><span class="sig-name descname"><span class="pre">VarifoldLoss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">K</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#TS_PCA.loss.VarifoldLoss" title="Link to this definition">¶</a></dt>
 <dd><p>Generate Varifold loss function related to the given varifold kernel</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -324,8 +324,8 @@ and mask_s_x,mask_t_x are time series graph mask (array of size (n_samples,1))</
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Loss</a><ul>
-<li><a class="reference internal" href="#src.loss.SumVarifoldLoss"><code class="docutils literal notranslate"><span class="pre">SumVarifoldLoss()</span></code></a></li>
-<li><a class="reference internal" href="#src.loss.VarifoldLoss"><code class="docutils literal notranslate"><span class="pre">VarifoldLoss()</span></code></a></li>
+<li><a class="reference internal" href="#TS_PCA.loss.SumVarifoldLoss"><code class="docutils literal notranslate"><span class="pre">SumVarifoldLoss()</span></code></a></li>
+<li><a class="reference internal" href="#TS_PCA.loss.VarifoldLoss"><code class="docutils literal notranslate"><span class="pre">VarifoldLoss()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -337,7 +337,7 @@ and mask_s_x,mask_t_x are time series graph mask (array of size (n_samples,1))</
       
     </aside>
   </div>
-</div><script src="../../_static/documentation_options.js?v=d45e8c67"></script>
+</div><script src="../../_static/documentation_options.js?v=e3a6060d"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/scripts/furo.js?v=46bd48cc"></script>

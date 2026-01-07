@@ -3,7 +3,10 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive. Page d'accueil , voir model gaethan
 
-PCA_for_time_series documentation
+TS-PCA
+======
+
+PCA for time series documentation
 =================================
 
 Add your content using ``reStructuredText`` syntax. See the

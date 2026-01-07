@@ -3,10 +3,10 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../genindex.html"><link rel="search" title="Search" href="../../search.html"><link rel="next" title="LDDMM functions" href="lddmm.html"><link rel="prev" title="PCA_for_time_series documentation" href="../../index.html">
+<link rel="index" title="Index" href="../../genindex.html"><link rel="search" title="Search" href="../../search.html"><link rel="next" title="LDDMM functions" href="lddmm.html"><link rel="prev" title="TS-PCA" href="../../index.html">
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2025.12.19 -->
-        <title>Kernels - PCA_for_time_series 0.0.1 documentation</title>
+        <title>Kernels - PCA_for_time_series 0.0.2 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
@@ -161,7 +161,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../index.html"><div class="brand">PCA_for_time_series 0.0.1 documentation</div></a>
+      <a href="../../index.html"><div class="brand">PCA_for_time_series 0.0.2 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -182,7 +182,7 @@
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
   
-  <span class="sidebar-brand-text">PCA_for_time_series 0.0.1 documentation</span>
+  <span class="sidebar-brand-text">PCA_for_time_series 0.0.2 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -232,11 +232,11 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="module-src.kernel">
-<span id="kernels"></span><h1>Kernels<a class="headerlink" href="#module-src.kernel" title="Link to this heading">¶</a></h1>
+          <section id="module-TS_PCA.kernel">
+<span id="kernels"></span><h1>Kernels<a class="headerlink" href="#module-TS_PCA.kernel" title="Link to this heading">¶</a></h1>
 <dl class="py function">
-<dt class="sig sig-object py" id="src.kernel.Varifold_TSLDDMM_Gaussian_Kernel">
-<span class="sig-prename descclassname"><span class="pre">src.kernel.</span></span><span class="sig-name descname"><span class="pre">Varifold_TSLDDMM_Gaussian_Kernel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t_sigma_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_sigma_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_sigma_2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_sigma_2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">np_dtype=&lt;class</span> <span class="pre">'numpy.float32'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.kernel.Varifold_TSLDDMM_Gaussian_Kernel" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="TS_PCA.kernel.Varifold_TSLDDMM_Gaussian_Kernel">
+<span class="sig-prename descclassname"><span class="pre">TS_PCA.kernel.</span></span><span class="sig-name descname"><span class="pre">Varifold_TSLDDMM_Gaussian_Kernel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t_sigma_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_sigma_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_sigma_2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_sigma_2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">np_dtype=&lt;class</span> <span class="pre">'numpy.float32'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#TS_PCA.kernel.Varifold_TSLDDMM_Gaussian_Kernel" title="Link to this definition">¶</a></dt>
 <dd><p>Generate TS-LDDMM  Varifold kernel function,  using the notations of the paper “Shape analysis for time series”
 <span class="math notranslate nohighlight">\(k((x,v),(x',v'))=k_{\text{pos}}(x,x')k_{\text{dir}}(v,v')\)</span> where
 <span class="math notranslate nohighlight">\(k_{\text{pos}}((t,x),(t',x'))=K^{(1)}_{\sigma_{\text{pos},t}}(t,t')K^{(d)}_{\sigma_{\text{pos},x}}(x,x')\)</span>,
@@ -265,8 +265,8 @@ and b is an array of shape (n_samples,d) with d the dimension of the problem</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="src.kernel.Velocity_TSLDDMM_Cauchy_Kernel">
-<span class="sig-prename descclassname"><span class="pre">src.kernel.</span></span><span class="sig-name descname"><span class="pre">Velocity_TSLDDMM_Cauchy_Kernel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_sigma_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_sigma_2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_sigma</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.kernel.Velocity_TSLDDMM_Cauchy_Kernel" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="TS_PCA.kernel.Velocity_TSLDDMM_Cauchy_Kernel">
+<span class="sig-prename descclassname"><span class="pre">TS_PCA.kernel.</span></span><span class="sig-name descname"><span class="pre">Velocity_TSLDDMM_Cauchy_Kernel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_sigma_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_sigma_2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_sigma</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#TS_PCA.kernel.Velocity_TSLDDMM_Cauchy_Kernel" title="Link to this definition">¶</a></dt>
 <dd><p>Function related to the velocity TSLDDMM cauchy kernel defined as, using the notations of the paper “Shape analysis for time series”
 <span class="math notranslate nohighlight">\(K_G((t,x),(t',x'))=\begin{pmatrix} c_0 K_{\text{time}}(t,t') &amp; 0 \\ 0&amp; c_1 K_{\text{space}}((t,x),(t',x'))\end{pmatrix}\)</span>
 with <span class="math notranslate nohighlight">\(K_{\text{time}}=K_{\sigma_{T,0}}^{(1)}(t,t'), \quad K_{\text{space}}=K_{\sigma_{T,1}}^{(1)}(t,t')K_{\sigma_{x}}^{(d)}(x,x')\)</span>
@@ -293,8 +293,8 @@ and b is an array of shape (d,) with d the dimension of the problem</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="src.kernel.Velocity_TSLDDMM_Gaussian_Kernel">
-<span class="sig-prename descclassname"><span class="pre">src.kernel.</span></span><span class="sig-name descname"><span class="pre">Velocity_TSLDDMM_Gaussian_Kernel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_sigma_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_sigma_2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_sigma</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.kernel.Velocity_TSLDDMM_Gaussian_Kernel" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="TS_PCA.kernel.Velocity_TSLDDMM_Gaussian_Kernel">
+<span class="sig-prename descclassname"><span class="pre">TS_PCA.kernel.</span></span><span class="sig-name descname"><span class="pre">Velocity_TSLDDMM_Gaussian_Kernel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_sigma_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_sigma_2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_sigma</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#TS_PCA.kernel.Velocity_TSLDDMM_Gaussian_Kernel" title="Link to this definition">¶</a></dt>
 <dd><p>Function related to the velocity TSLDDMM gaussian kernel defined as,  using the notations of the paper “Shape analysis for time series” <span class="math notranslate nohighlight">\(K_G((t,x),(t',x'))=\begin{pmatrix} c_0 K_{\text{time}}(t,t') &amp; 0 \\ 0&amp; c_1 K_{\text{space}}((t,x),(t',x'))\end{pmatrix}\)</span>
 with <span class="math notranslate nohighlight">\(K_{\text{time}}=K_{\sigma_{T,0}}^{(1)}(t,t'), \quad K_{\text{space}}=K_{\sigma_{T,1}}^{(1)}(t,t')K_{\sigma_{x}}^{(d)}(x,x')\)</span>
 and <span class="math notranslate nohighlight">\(K_{\sigma}^{(a)}(w,w')=\exp(-|w-w'|^2/\sigma))\)</span> the <span class="math notranslate nohighlight">\(a\)</span> dimensional isotropic Gaussian kernel of variance <span class="math notranslate nohighlight">\(\sigma\)</span>.</p>
@@ -377,9 +377,9 @@ and b is an array of shape (d,) with d the dimension of the problem</p>
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Kernels</a><ul>
-<li><a class="reference internal" href="#src.kernel.Varifold_TSLDDMM_Gaussian_Kernel"><code class="docutils literal notranslate"><span class="pre">Varifold_TSLDDMM_Gaussian_Kernel()</span></code></a></li>
-<li><a class="reference internal" href="#src.kernel.Velocity_TSLDDMM_Cauchy_Kernel"><code class="docutils literal notranslate"><span class="pre">Velocity_TSLDDMM_Cauchy_Kernel()</span></code></a></li>
-<li><a class="reference internal" href="#src.kernel.Velocity_TSLDDMM_Gaussian_Kernel"><code class="docutils literal notranslate"><span class="pre">Velocity_TSLDDMM_Gaussian_Kernel()</span></code></a></li>
+<li><a class="reference internal" href="#TS_PCA.kernel.Varifold_TSLDDMM_Gaussian_Kernel"><code class="docutils literal notranslate"><span class="pre">Varifold_TSLDDMM_Gaussian_Kernel()</span></code></a></li>
+<li><a class="reference internal" href="#TS_PCA.kernel.Velocity_TSLDDMM_Cauchy_Kernel"><code class="docutils literal notranslate"><span class="pre">Velocity_TSLDDMM_Cauchy_Kernel()</span></code></a></li>
+<li><a class="reference internal" href="#TS_PCA.kernel.Velocity_TSLDDMM_Gaussian_Kernel"><code class="docutils literal notranslate"><span class="pre">Velocity_TSLDDMM_Gaussian_Kernel()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -391,7 +391,7 @@ and b is an array of shape (d,) with d the dimension of the problem</p>
       
     </aside>
   </div>
-</div><script src="../../_static/documentation_options.js?v=d45e8c67"></script>
+</div><script src="../../_static/documentation_options.js?v=e3a6060d"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/scripts/furo.js?v=46bd48cc"></script>

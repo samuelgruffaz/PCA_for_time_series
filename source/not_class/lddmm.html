@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../../genindex.html"><link rel="search" title="Search" href="../../search.html"><link rel="next" title="Loss" href="loss.html"><link rel="prev" title="Kernels" href="kernel.html">
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2025.12.19 -->
-        <title>LDDMM functions - PCA_for_time_series 0.0.1 documentation</title>
+        <title>LDDMM functions - PCA_for_time_series 0.0.2 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
@@ -161,7 +161,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../index.html"><div class="brand">PCA_for_time_series 0.0.1 documentation</div></a>
+      <a href="../../index.html"><div class="brand">PCA_for_time_series 0.0.2 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -182,7 +182,7 @@
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
   
-  <span class="sidebar-brand-text">PCA_for_time_series 0.0.1 documentation</span>
+  <span class="sidebar-brand-text">PCA_for_time_series 0.0.2 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -232,11 +232,11 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="module-src.lddmm">
-<span id="lddmm-functions"></span><h1>LDDMM functions<a class="headerlink" href="#module-src.lddmm" title="Link to this heading">¶</a></h1>
+          <section id="module-TS_PCA.lddmm">
+<span id="lddmm-functions"></span><h1>LDDMM functions<a class="headerlink" href="#module-TS_PCA.lddmm" title="Link to this heading">¶</a></h1>
 <dl class="py function">
-<dt class="sig sig-object py" id="src.lddmm.DeformationGradient">
-<span class="sig-prename descclassname"><span class="pre">src.lddmm.</span></span><span class="sig-name descname"><span class="pre">DeformationGradient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">K</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deltat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.lddmm.DeformationGradient" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="TS_PCA.lddmm.DeformationGradient">
+<span class="sig-prename descclassname"><span class="pre">TS_PCA.lddmm.</span></span><span class="sig-name descname"><span class="pre">DeformationGradient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">K</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deltat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#TS_PCA.lddmm.DeformationGradient" title="Link to this definition">¶</a></dt>
 <dd><p>Return the gradient of the exponential map according to the starting points</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -256,8 +256,8 @@ using the Ralston integrator on nt points. Also called shooting function.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="src.lddmm.Flowing">
-<span class="sig-prename descclassname"><span class="pre">src.lddmm.</span></span><span class="sig-name descname"><span class="pre">Flowing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">K</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deltat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.lddmm.Flowing" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="TS_PCA.lddmm.Flowing">
+<span class="sig-prename descclassname"><span class="pre">TS_PCA.lddmm.</span></span><span class="sig-name descname"><span class="pre">Flowing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">K</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deltat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#TS_PCA.lddmm.Flowing" title="Link to this definition">¶</a></dt>
 <dd><p>Return the Exponential map function related to the kernel K that map as well a grid</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -278,8 +278,8 @@ using the Ralston integrator. Also called shooting function.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="src.lddmm.Hamiltonian">
-<span class="sig-prename descclassname"><span class="pre">src.lddmm.</span></span><span class="sig-name descname"><span class="pre">Hamiltonian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">K</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.lddmm.Hamiltonian" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="TS_PCA.lddmm.Hamiltonian">
+<span class="sig-prename descclassname"><span class="pre">TS_PCA.lddmm.</span></span><span class="sig-name descname"><span class="pre">Hamiltonian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">K</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#TS_PCA.lddmm.Hamiltonian" title="Link to this definition">¶</a></dt>
 <dd><p>Return the Hamiltonian function related to the kernel K</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -294,8 +294,8 @@ and P are the momentums, it’s an array of size (n_samples,d+1)</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="src.lddmm.HamiltonianSystem">
-<span class="sig-prename descclassname"><span class="pre">src.lddmm.</span></span><span class="sig-name descname"><span class="pre">HamiltonianSystem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">K</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.lddmm.HamiltonianSystem" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="TS_PCA.lddmm.HamiltonianSystem">
+<span class="sig-prename descclassname"><span class="pre">TS_PCA.lddmm.</span></span><span class="sig-name descname"><span class="pre">HamiltonianSystem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">K</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#TS_PCA.lddmm.HamiltonianSystem" title="Link to this definition">¶</a></dt>
 <dd><p>Return the Hamiltonian system function related to the kernel K</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -310,8 +310,8 @@ and P are the momentums, it’s an array of size (n_samples,d+1)</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="src.lddmm.LDDMMLoss">
-<span class="sig-prename descclassname"><span class="pre">src.lddmm.</span></span><span class="sig-name descname"><span class="pre">LDDMMLoss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">K</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataloss</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deltat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.lddmm.LDDMMLoss" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="TS_PCA.lddmm.LDDMMLoss">
+<span class="sig-prename descclassname"><span class="pre">TS_PCA.lddmm.</span></span><span class="sig-name descname"><span class="pre">LDDMMLoss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">K</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataloss</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deltat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#TS_PCA.lddmm.LDDMMLoss" title="Link to this definition">¶</a></dt>
 <dd><p>Return the Loss function related to a registration problem</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -333,8 +333,8 @@ using the Ralston integrator on nt points. Also called shooting function.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="src.lddmm.Shooting">
-<span class="sig-prename descclassname"><span class="pre">src.lddmm.</span></span><span class="sig-name descname"><span class="pre">Shooting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">K</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deltat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.lddmm.Shooting" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="TS_PCA.lddmm.Shooting">
+<span class="sig-prename descclassname"><span class="pre">TS_PCA.lddmm.</span></span><span class="sig-name descname"><span class="pre">Shooting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">K</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deltat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#TS_PCA.lddmm.Shooting" title="Link to this definition">¶</a></dt>
 <dd><p>Return the Hamiltonian system function related to the kernel K</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -354,8 +354,8 @@ using the Ralston integrator. Also called shooting function.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="src.lddmm.batch_one_to_many_registration">
-<span class="sig-prename descclassname"><span class="pre">src.lddmm.</span></span><span class="sig-name descname"><span class="pre">batch_one_to_many_registration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q0_mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batched_q1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batched_q1_mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Kv</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataloss</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batched_p0=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma_loss=0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">niter=100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer=(&lt;function</span> <span class="pre">chain.&lt;locals&gt;.init_fn&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">&lt;function</span> <span class="pre">chain.&lt;locals&gt;.update_fn&gt;)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nt=10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deltat=1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream_bool=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream_object=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.lddmm.batch_one_to_many_registration" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="TS_PCA.lddmm.batch_one_to_many_registration">
+<span class="sig-prename descclassname"><span class="pre">TS_PCA.lddmm.</span></span><span class="sig-name descname"><span class="pre">batch_one_to_many_registration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q0_mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batched_q1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batched_q1_mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Kv</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataloss</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batched_p0=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma_loss=0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">niter=100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer=(&lt;function</span> <span class="pre">chain.&lt;locals&gt;.init_fn&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">&lt;function</span> <span class="pre">chain.&lt;locals&gt;.update_fn&gt;)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nt=10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deltat=1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream_bool=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream_object=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#TS_PCA.lddmm.batch_one_to_many_registration" title="Link to this definition">¶</a></dt>
 <dd><p>Return the momentums (p^i) such that the hamiltonian dynamics starting from any (q_0,p_i) reach approximately (q_1,p^i_1) at time t=1, the shooting problem is performed by minimizing the LDDMM loss defined previously</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -387,8 +387,8 @@ using the Ralston integrator. Also called shooting function.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="src.lddmm.batch_one_to_many_varifold_registration">
-<span class="sig-prename descclassname"><span class="pre">src.lddmm.</span></span><span class="sig-name descname"><span class="pre">batch_one_to_many_varifold_registration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q0_mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batched_q1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batched_q1_mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Kv</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Kl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batched_p0=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma_loss=0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">niter=100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer=(&lt;function</span> <span class="pre">chain.&lt;locals&gt;.init_fn&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">&lt;function</span> <span class="pre">chain.&lt;locals&gt;.update_fn&gt;)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nt=10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deltat=1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream_bool=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream_object=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.lddmm.batch_one_to_many_varifold_registration" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="TS_PCA.lddmm.batch_one_to_many_varifold_registration">
+<span class="sig-prename descclassname"><span class="pre">TS_PCA.lddmm.</span></span><span class="sig-name descname"><span class="pre">batch_one_to_many_varifold_registration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q0_mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batched_q1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batched_q1_mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Kv</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Kl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batched_p0=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma_loss=0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">niter=100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer=(&lt;function</span> <span class="pre">chain.&lt;locals&gt;.init_fn&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">&lt;function</span> <span class="pre">chain.&lt;locals&gt;.update_fn&gt;)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nt=10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deltat=1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream_bool=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream_object=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#TS_PCA.lddmm.batch_one_to_many_varifold_registration" title="Link to this definition">¶</a></dt>
 <dd><p>Return the momentums (p^i) such that the hamiltonian dynamics starting from any (q_0,p_i) reach approximately (q_1,p^i_1) at time t=1, the shooting problem is performed by minimizing the LDDMM loss defined previously</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -421,8 +421,8 @@ and b is an array of shape (n_samples,d) with d the dimension of the problem</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="src.lddmm.registration">
-<span class="sig-prename descclassname"><span class="pre">src.lddmm.</span></span><span class="sig-name descname"><span class="pre">registration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q0_mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q1_mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Kv</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataloss</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma_loss=0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">niter=100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer=(&lt;function</span> <span class="pre">chain.&lt;locals&gt;.init_fn&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">&lt;function</span> <span class="pre">chain.&lt;locals&gt;.update_fn&gt;)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nt=10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deltat=1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream_bool=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream_object=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.lddmm.registration" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="TS_PCA.lddmm.registration">
+<span class="sig-prename descclassname"><span class="pre">TS_PCA.lddmm.</span></span><span class="sig-name descname"><span class="pre">registration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q0_mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q1_mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Kv</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataloss</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma_loss=0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">niter=100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer=(&lt;function</span> <span class="pre">chain.&lt;locals&gt;.init_fn&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">&lt;function</span> <span class="pre">chain.&lt;locals&gt;.update_fn&gt;)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nt=10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deltat=1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream_bool=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream_object=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#TS_PCA.lddmm.registration" title="Link to this definition">¶</a></dt>
 <dd><p>Return the momentum p such that the hamiltonian dynamics starting from (q_0,p) reach approximately (q_1,p_1) at time t=1, the shooting problem is performed by minimizing the LDDMM loss defined previously</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -454,8 +454,8 @@ and b is an array of shape (n_samples,d) with d the dimension of the problem</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="src.lddmm.varifold_registration">
-<span class="sig-prename descclassname"><span class="pre">src.lddmm.</span></span><span class="sig-name descname"><span class="pre">varifold_registration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q0_mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q1_mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Kv</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Kl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma_loss=0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">niter=100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer=(&lt;function</span> <span class="pre">chain.&lt;locals&gt;.init_fn&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">&lt;function</span> <span class="pre">chain.&lt;locals&gt;.update_fn&gt;)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nt=10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deltat=1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream_bool=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream_object=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.lddmm.varifold_registration" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="TS_PCA.lddmm.varifold_registration">
+<span class="sig-prename descclassname"><span class="pre">TS_PCA.lddmm.</span></span><span class="sig-name descname"><span class="pre">varifold_registration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q0_mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q1_mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Kv</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Kl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma_loss=0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">niter=100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer=(&lt;function</span> <span class="pre">chain.&lt;locals&gt;.init_fn&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">&lt;function</span> <span class="pre">chain.&lt;locals&gt;.update_fn&gt;)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nt=10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deltat=1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream_bool=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream_object=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#TS_PCA.lddmm.varifold_registration" title="Link to this definition">¶</a></dt>
 <dd><p>Return the momentum p such that the hamiltonian dynamics starting from (q_0,p) reach approximately (q_1,p_1) at time t=1, the shooting problem is performed by minimizing the LDDMM loss defined previously</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -545,16 +545,16 @@ and b is an array of shape (n_samples,d) with d the dimension of the problem</p>
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">LDDMM functions</a><ul>
-<li><a class="reference internal" href="#src.lddmm.DeformationGradient"><code class="docutils literal notranslate"><span class="pre">DeformationGradient()</span></code></a></li>
-<li><a class="reference internal" href="#src.lddmm.Flowing"><code class="docutils literal notranslate"><span class="pre">Flowing()</span></code></a></li>
-<li><a class="reference internal" href="#src.lddmm.Hamiltonian"><code class="docutils literal notranslate"><span class="pre">Hamiltonian()</span></code></a></li>
-<li><a class="reference internal" href="#src.lddmm.HamiltonianSystem"><code class="docutils literal notranslate"><span class="pre">HamiltonianSystem()</span></code></a></li>
-<li><a class="reference internal" href="#src.lddmm.LDDMMLoss"><code class="docutils literal notranslate"><span class="pre">LDDMMLoss()</span></code></a></li>
-<li><a class="reference internal" href="#src.lddmm.Shooting"><code class="docutils literal notranslate"><span class="pre">Shooting()</span></code></a></li>
-<li><a class="reference internal" href="#src.lddmm.batch_one_to_many_registration"><code class="docutils literal notranslate"><span class="pre">batch_one_to_many_registration()</span></code></a></li>
-<li><a class="reference internal" href="#src.lddmm.batch_one_to_many_varifold_registration"><code class="docutils literal notranslate"><span class="pre">batch_one_to_many_varifold_registration()</span></code></a></li>
-<li><a class="reference internal" href="#src.lddmm.registration"><code class="docutils literal notranslate"><span class="pre">registration()</span></code></a></li>
-<li><a class="reference internal" href="#src.lddmm.varifold_registration"><code class="docutils literal notranslate"><span class="pre">varifold_registration()</span></code></a></li>
+<li><a class="reference internal" href="#TS_PCA.lddmm.DeformationGradient"><code class="docutils literal notranslate"><span class="pre">DeformationGradient()</span></code></a></li>
+<li><a class="reference internal" href="#TS_PCA.lddmm.Flowing"><code class="docutils literal notranslate"><span class="pre">Flowing()</span></code></a></li>
+<li><a class="reference internal" href="#TS_PCA.lddmm.Hamiltonian"><code class="docutils literal notranslate"><span class="pre">Hamiltonian()</span></code></a></li>
+<li><a class="reference internal" href="#TS_PCA.lddmm.HamiltonianSystem"><code class="docutils literal notranslate"><span class="pre">HamiltonianSystem()</span></code></a></li>
+<li><a class="reference internal" href="#TS_PCA.lddmm.LDDMMLoss"><code class="docutils literal notranslate"><span class="pre">LDDMMLoss()</span></code></a></li>
+<li><a class="reference internal" href="#TS_PCA.lddmm.Shooting"><code class="docutils literal notranslate"><span class="pre">Shooting()</span></code></a></li>
+<li><a class="reference internal" href="#TS_PCA.lddmm.batch_one_to_many_registration"><code class="docutils literal notranslate"><span class="pre">batch_one_to_many_registration()</span></code></a></li>
+<li><a class="reference internal" href="#TS_PCA.lddmm.batch_one_to_many_varifold_registration"><code class="docutils literal notranslate"><span class="pre">batch_one_to_many_varifold_registration()</span></code></a></li>
+<li><a class="reference internal" href="#TS_PCA.lddmm.registration"><code class="docutils literal notranslate"><span class="pre">registration()</span></code></a></li>
+<li><a class="reference internal" href="#TS_PCA.lddmm.varifold_registration"><code class="docutils literal notranslate"><span class="pre">varifold_registration()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -566,7 +566,7 @@ and b is an array of shape (n_samples,d) with d the dimension of the problem</p>
       
     </aside>
   </div>
-</div><script src="../../_static/documentation_options.js?v=d45e8c67"></script>
+</div><script src="../../_static/documentation_options.js?v=e3a6060d"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/scripts/furo.js?v=46bd48cc"></script>
