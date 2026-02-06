@@ -14,11 +14,11 @@ sys.path.insert(0,"../")
 
 from utils import Sampler,TASExperiment
 
-from src.kernel import Varifold_TSLDDMM_Gaussian_Kernel,Velocity_TSLDDMM_Gaussian_Kernel
-from src.lddmm import Shooting, varifold_registration, Flowing
-from src.utils import time_shape_embedding
-from src.loss import SumVarifoldLoss
-from src.plotting import plot2Dfigure
+from TS_PCA.kernel import Varifold_TSLDDMM_Gaussian_Kernel,Velocity_TSLDDMM_Gaussian_Kernel
+from TS_PCA.lddmm import Shooting, varifold_registration, Flowing
+from TS_PCA.utils import time_shape_embedding
+from TS_PCA.loss import SumVarifoldLoss
+from TS_PCA.plotting import plot2Dfigure
 import matplotlib.pyplot as plt
 
 

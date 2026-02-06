@@ -159,7 +159,7 @@ def Flowing(K:callable,nt=10,deltat=1.):
     Returns
     -------
 
-        Exponential flow function, taking a grid as well in input : (Grid,P,X,mask_X)-> (Grid_shooted,\Exp_X(deltat P),\Exp_X'(deltat P))
+        Exponential flow function, taking a grid as well in input : (Grid,P,X,mask_X)-> (Grid_shooted,Exp_X(deltat P),Exp_X'(deltat P))
         :math:`(Grid_shooted,\\exp_X(\\delta P),\\exp_X'(\\delta P))` where X is an array of size (n_samples,d+1),
         and P are the momentums, it's an array of size (n_samples,d+1),
         Grid is another array that may be different than X, Grid_shooted is its final position after flowing by using the integrated velocity. The exponential map is computed by integrating the Hamiltonian system

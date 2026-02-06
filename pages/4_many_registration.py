@@ -14,14 +14,14 @@ sys.path.insert(0,"../")
 
 from utils import Sampler,TASExperiment
 
-from src.kernel import Varifold_TSLDDMM_Gaussian_Kernel,Velocity_TSLDDMM_Gaussian_Kernel
-from src.lddmm import Shooting, varifold_registration, Flowing,batch_one_to_many_varifold_registration
-from src.utils import time_shape_embedding
-from src.loss import VarifoldLoss,SumVarifoldLoss
+from TS_PCA.kernel import Varifold_TSLDDMM_Gaussian_Kernel,Velocity_TSLDDMM_Gaussian_Kernel
+from TS_PCA.lddmm import Shooting, varifold_registration, Flowing,batch_one_to_many_varifold_registration
+from TS_PCA.utils import time_shape_embedding
+from TS_PCA.loss import VarifoldLoss,SumVarifoldLoss
 # it can be interesting to use a sum of varifold and not only one varifold to tackle tail of distribution
-from src.barycenter import batch_barycenter_registration
-from src.utils import batch_dataset
-from src.plotting import plot2Dfigure
+from TS_PCA.barycenter import batch_barycenter_registration
+from TS_PCA.utils import batch_dataset
+from TS_PCA.plotting import plot2Dfigure
 import matplotlib.pyplot as plt
 
 # Pour la prochaine fois, TODO
@@ -83,7 +83,7 @@ vari_hyper_4=st.sidebar.slider(r"$\sigma_{dir,x}$", min_value =0.1, max_value =4
 Kl = Varifold_TSLDDMM_Gaussian_Kernel(vari_hyper_1,vari_hyper_2,vari_hyper_3,vari_hyper_4) #kernel varifold
 
 niter=100
-schedule =warmup_cosine_decay_schedule(0,0.1,10,100,0)
+schedule =warmup_cosine_decay_schedule(0,0.1,int(0.1*niter),niter,0)
 #schedule =warmup_cosine_decay_schedule(0,0.3,80,800,0)
 optimize=optax.adabelief(schedule)
 dataloss=SumVarifoldLoss([Kl])# On peut rajouter d'autres noyaux si besoin
@@ -130,7 +130,7 @@ print(q0.shape,q0_mask.shape) # (n_sample,d),(n_sample,1)
 
 ft_size = 25
 pft_size = 20
-from src.statistic import MomentaPCA
+from TS_PCA.statistic import MomentaPCA
 n_comp,n_disp = 2,3
 components = [f"PC{i+1}" for i in range(n_comp)]
 mpca = MomentaPCA(n_comp,False,"cov")

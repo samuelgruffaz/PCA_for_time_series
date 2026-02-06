@@ -14,14 +14,14 @@ sys.path.insert(0,"../")
 
 from utils import Sampler,TASExperiment
 
-from src.kernel import Varifold_TSLDDMM_Gaussian_Kernel,Velocity_TSLDDMM_Gaussian_Kernel
-from src.lddmm import Shooting, varifold_registration, Flowing
-from src.utils import time_shape_embedding
-from src.loss import VarifoldLoss,SumVarifoldLoss
+from TS_PCA.kernel import Varifold_TSLDDMM_Gaussian_Kernel,Velocity_TSLDDMM_Gaussian_Kernel
+from TS_PCA.lddmm import Shooting, varifold_registration, Flowing
+from TS_PCA.utils import time_shape_embedding
+from TS_PCA.loss import VarifoldLoss,SumVarifoldLoss
 # it can be interesting to use a sum of varifold and not only one varifold to tackle tail of distribution
-from src.barycenter import batch_barycenter_registration
-from src.utils import batch_dataset
-from src.plotting import plot2Dfigure
+from TS_PCA.barycenter import batch_barycenter_registration
+from TS_PCA.utils import batch_dataset
+from TS_PCA.plotting import plot2Dfigure
 import matplotlib.pyplot as plt
 
 # Pour la prochaine fois, TODO

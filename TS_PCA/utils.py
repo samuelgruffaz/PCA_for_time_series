@@ -35,6 +35,46 @@ def time_shape_embedding(x:np.ndarray,sampfreq=1,max_length=None,dtype = jnp.flo
         return t_x, mask
 
 def from_timeseries_to_dataset(X:list,sampfreq=1,dtype=jnp.float32): 
+    """
+    Convert a list of time series arrays into a fixed-shape dataset suitable for TS-PCA.
+
+    Each time series is transformed into a time-augmented array of shape 
+    :math:`(n\_samples, d+1)` where the first column contains time points (with 
+    sampling frequency `sampfreq`) and the remaining columns contain the original 
+    time series values. The function also returns a mask indicating valid samples 
+    for each time series.
+
+    Parameters
+    ----------
+        X : list of arrays
+            List of time series arrays. Each element should have shape `(n_samples, d)` 
+            or `(n_samples,)` for univariate series.
+
+        sampfreq : float, optional
+            Sampling frequency used to generate the time points. Default is 1.
+
+        dtype : jnp.dtype, optional
+            Data type of the returned arrays. Default is `jnp.float32`.
+
+    Returns
+    -------
+        dataset : jnp.array of shape (n_time_series, n_samples_max, d+1)
+            Padded dataset of time series, where `n_samples_max` is the length of the 
+            longest time series. The first column contains time points, and the 
+            remaining columns contain time series values.
+
+        mask : jnp.array of shape (n_time_series, n_samples_max, 1)
+            Boolean mask indicating valid samples for each time series. True indicates 
+            a valid entry, False indicates padding.
+
+    Notes
+    -----
+        - The function pads shorter time series to the length of the longest series in `X`.
+        - Internally, it calls `time_shape_embedding` to embed each time series with time 
+        information and generate the corresponding mask.
+        - Suitable for use as input to `TS-PCA` methods that require a fixed-size dataset 
+        and mask.
+    """
     lengths = np.array([x.shape[0] for x in X])
     max_length = np.max(lengths)
     mask_lst = []

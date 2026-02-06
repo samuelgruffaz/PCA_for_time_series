@@ -13,10 +13,10 @@ sys.path.insert(0,"../")
 
 from utils import Sampler,TASExperiment
 
-from src.kernel import Velocity_TSLDDMM_Gaussian_Kernel
-from src.lddmm import Shooting
-from src.utils import time_shape_embedding
-from src.loss import SumVarifoldLoss
+from TS_PCA.kernel import Velocity_TSLDDMM_Gaussian_Kernel
+from TS_PCA.lddmm import Shooting
+from TS_PCA.utils import time_shape_embedding
+from TS_PCA.loss import SumVarifoldLoss
 import matplotlib.pyplot as plt
 
 functional_signal = lambda x:  np.sin(2*np.pi*x)

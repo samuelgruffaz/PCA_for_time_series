@@ -54,7 +54,7 @@ def Varifold_TSLDDMM_Gaussian_Kernel(t_sigma_1:float,s_sigma_1:float,t_sigma_2:f
 def Velocity_TSLDDMM_Gaussian_Kernel(c_0:float,c_1:float,t_sigma_1:float,t_sigma_2:float,s_sigma:float): 
     """
     Function related to the velocity TSLDDMM gaussian kernel defined as,  using the notations of the paper "Shape analysis for time series" :math:`K_G((t,x),(t',x'))=\\begin{pmatrix} c_0 K_{\\text{time}}(t,t') & 0 \\\\ 0& c_1 K_{\\text{space}}((t,x),(t',x'))\\end{pmatrix}`
-    with :math:`K_{\\text{time}}=K_{\\sigma_{T,0}}^{(1)}(t,t'), \quad K_{\\text{space}}=K_{\\sigma_{T,1}}^{(1)}(t,t')K_{\\sigma_{x}}^{(d)}(x,x')`
+    with :math:`K_{\\text{time}}=K_{\\sigma_{T,0}}^{(1)}(t,t')`, :math:`K_{\\text{space}}=K_{\\sigma_{T,1}}^{(1)}(t,t')K_{\\sigma_{x}}^{(d)}(x,x')`
     and :math:`K_{\\sigma}^{(a)}(w,w')=\\exp(-|w-w'|^2/\\sigma))` the :math:`a` dimensional isotropic Gaussian kernel of variance :math:`\\sigma`.
 
     Parameters
@@ -108,7 +108,7 @@ def Velocity_TSLDDMM_Cauchy_Kernel(c_0:float,c_1:float,t_sigma_1:float,t_sigma_2
     """
     Function related to the velocity TSLDDMM cauchy kernel defined as, using the notations of the paper "Shape analysis for time series"
     :math:`K_G((t,x),(t',x'))=\\begin{pmatrix} c_0 K_{\\text{time}}(t,t') & 0 \\\\ 0& c_1 K_{\\text{space}}((t,x),(t',x'))\\end{pmatrix}`
-    with :math:`K_{\\text{time}}=K_{\\sigma_{T,0}}^{(1)}(t,t'), \quad K_{\\text{space}}=K_{\\sigma_{T,1}}^{(1)}(t,t')K_{\\sigma_{x}}^{(d)}(x,x')`
+    with :math:`K_{\\text{time}}=K_{\\sigma_{T,0}}^{(1)}(t,t')`,  :math:`K_{\\text{space}}=K_{\\sigma_{T,1}}^{(1)}(t,t')K_{\\sigma_{x}}^{(d)}(x,x')`
     and :math:`K_{\\sigma}^{(a)}(w,w')=\\frac{1}{1+|w-w'|^2/\\sigma)}` the :math:`a` dimensional isotropic Cauchy kernel of variance :math:`\\sigma`.
 
     Parameters
