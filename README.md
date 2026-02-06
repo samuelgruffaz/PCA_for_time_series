@@ -29,7 +29,7 @@ Default parameters work well when the distance between two consecutive time poin
 This example demonstrates the basic workflow of using the `TS-PCA` package to analyze time-series data using TS-LDDMM representations and Kernel PCA.
 
 ```python
-# Import or generate a toy dataset
+# Import or generate a toy dataset,
 N = 8
 dataset, dataset_mask, graph_ref, graph_ref_mask = generate_easy_dataset(N=N)
 
