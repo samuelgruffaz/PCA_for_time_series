@@ -3,10 +3,10 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../genindex.html"><link rel="search" title="Search" href="../../search.html"><link rel="next" title="LDDMM functions" href="lddmm.html"><link rel="prev" title="TS-PCA" href="../../index.html">
+<link rel="index" title="Index" href="../../genindex.html"><link rel="search" title="Search" href="../../search.html"><link rel="prev" title="Loss" href="loss.html">
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2025.12.19 -->
-        <title>Kernels - PCA_for_time_series 0.0.3 documentation</title>
+        <title>Utils - PCA_for_time_series 0.0.3 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
@@ -191,10 +191,10 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul class="current">
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Kernels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kernel.html">Kernels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lddmm.html">LDDMM functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="loss.html">Loss</a></li>
-<li class="toctree-l1"><a class="reference internal" href="utils.html">Utils</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Utils</a></li>
 </ul>
 
 </div>
@@ -215,7 +215,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../_sources/source/not_class/kernel.rst.txt" title="View this page">
+  <a class="muted-link" href="../../_sources/source/not_class/utils.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -233,89 +233,116 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="module-TS_PCA.kernel">
-<span id="kernels"></span><h1>Kernels<a class="headerlink" href="#module-TS_PCA.kernel" title="Link to this heading">¶</a></h1>
+          <section id="module-TS_PCA.utils">
+<span id="utils"></span><h1>Utils<a class="headerlink" href="#module-TS_PCA.utils" title="Link to this heading">¶</a></h1>
 <dl class="py function">
-<dt class="sig sig-object py" id="TS_PCA.kernel.Varifold_TSLDDMM_Gaussian_Kernel">
-<span class="sig-prename descclassname"><span class="pre">TS_PCA.kernel.</span></span><span class="sig-name descname"><span class="pre">Varifold_TSLDDMM_Gaussian_Kernel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t_sigma_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_sigma_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_sigma_2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_sigma_2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">np_dtype=&lt;class</span> <span class="pre">'numpy.float32'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#TS_PCA.kernel.Varifold_TSLDDMM_Gaussian_Kernel" title="Link to this definition">¶</a></dt>
-<dd><p>Generate TS-LDDMM  Varifold kernel function,  using the notations of the paper “Shape analysis for time series”
-<span class="math notranslate nohighlight">\(k((x,v),(x',v'))=k_{\text{pos}}(x,x')k_{\text{dir}}(v,v')\)</span> where
-<span class="math notranslate nohighlight">\(k_{\text{pos}}((t,x),(t',x'))=K^{(1)}_{\sigma_{\text{pos},t}}(t,t')K^{(d)}_{\sigma_{\text{pos},x}}(x,x')\)</span>,
-<span class="math notranslate nohighlight">\(k_{\text{dir}}((t,x),(t',x'))=K^{(1)}_{\sigma_{\text{dir},t}}(t,t')K^{(d)}_{\sigma_{\text{dir},x}}(x,x')\)</span>
-and
-<span class="math notranslate nohighlight">\(K_{\sigma}^{(a)}(w,w')=\exp(-|w-w'|^2/\sigma))\)</span> the <span class="math notranslate nohighlight">\(a\)</span> dimensional isotropic Gaussian kernel of variance <span class="math notranslate nohighlight">\(\sigma\)</span>.</p>
+<dt class="sig sig-object py" id="TS_PCA.utils.batch_dataset">
+<span class="sig-prename descclassname"><span class="pre">TS_PCA.utils.</span></span><span class="sig-name descname"><span class="pre">batch_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">masks=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype=&lt;class</span> <span class="pre">'jax.numpy.float32'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#TS_PCA.utils.batch_dataset" title="Link to this definition">¶</a></dt>
+<dd><p>Change the shape to apply a batch function</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>t_sigma_1</strong> (<em>(</em><em>float</em><em>)</em>) – variance of the kernel related to time coordinate of the kernel related to position <span class="math notranslate nohighlight">\(\sigma_{\text{pos},t}\)</span></p></li>
-<li><p><strong>s_sigma_1</strong> (<em>(</em><em>float</em><em>)</em>) – variance of the kernel related to space coordinate of the kernel related to position <span class="math notranslate nohighlight">\(\sigma_{\text{pos},x}\)</span></p></li>
-<li><p><strong>t_sigma_2</strong> (<em>(</em><em>float</em><em>)</em>) – variance of the kernel related to time coordinate of the kernel related to direction <span class="math notranslate nohighlight">\(\sigma_{\text{dir},t}\)</span></p></li>
-<li><p><strong>s_sigma_2</strong> (<em>(</em><em>float</em><em>)</em>) – variance of the kernel related to space coordinate of the kernel related to direction <span class="math notranslate nohighlight">\(\sigma_{\text{dir},x}\)</span></p></li>
-<li><p><strong>np_dtype</strong> (<em>(</em><em>_type_</em><em>, </em><em>optional</em><em>)</em><em>:</em>) – Defaults to np.float32.</p></li>
+<li><p><strong>dataset</strong> (<em>array</em><em> of </em><em>shape</em><em> (</em><em>n_ts</em><em>,</em><em>n_s</em><em>,</em><em>n_d</em><em>)</em>) – dataset of time series graph</p></li>
+<li><p><strong>batch_size</strong> (<em>(</em><em>int</em><em>)</em>) – we should have n_ts // batch_size=int</p></li>
+<li><p><strong>masks</strong> (<em>array</em><em> (</em><em>n_ts</em><em>,</em><em>n_s</em><em>,</em><em>1</em><em>)</em>) – Mask related to the dataset</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><dl class="simple">
-<dt>kernel function<span class="classifier">(X,mask_X,Y,mask_Y,b)-&gt; array of the shape of b</span></dt><dd><p><span class="math notranslate nohighlight">\(K(X,Y)b\)</span> where X and Y are array of size (n_samples,d+1), <span class="math notranslate nohighlight">\(K(X,Y)\)</span> is the kernel matrix <span class="math notranslate nohighlight">\((k(x_i,y_j))\)</span>
-and b is an array of shape (n_samples,d) with d the dimension of the problem</p>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – dataset size is not a multiple of batch_size:</p>
 </dd>
-</dl>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><p>reshaped dataset : array of shape (n_batches,batch_size,n_s,n_d)</p>
+<p>reshaped mask : array of shape (n_batches,batch_size,n_s,1)</p>
 </p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pair</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="TS_PCA.kernel.Velocity_TSLDDMM_Cauchy_Kernel">
-<span class="sig-prename descclassname"><span class="pre">TS_PCA.kernel.</span></span><span class="sig-name descname"><span class="pre">Velocity_TSLDDMM_Cauchy_Kernel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_sigma_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_sigma_2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_sigma</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#TS_PCA.kernel.Velocity_TSLDDMM_Cauchy_Kernel" title="Link to this definition">¶</a></dt>
-<dd><p>Function related to the velocity TSLDDMM cauchy kernel defined as, using the notations of the paper “Shape analysis for time series”
-<span class="math notranslate nohighlight">\(K_G((t,x),(t',x'))=\begin{pmatrix} c_0 K_{\text{time}}(t,t') &amp; 0 \\ 0&amp; c_1 K_{\text{space}}((t,x),(t',x'))\end{pmatrix}\)</span>
-with <span class="math notranslate nohighlight">\(K_{\text{time}}=K_{\sigma_{T,0}}^{(1)}(t,t')\)</span>,  <span class="math notranslate nohighlight">\(K_{\text{space}}=K_{\sigma_{T,1}}^{(1)}(t,t')K_{\sigma_{x}}^{(d)}(x,x')\)</span>
-and <span class="math notranslate nohighlight">\(K_{\sigma}^{(a)}(w,w')=\frac{1}{1+|w-w'|^2/\sigma)}\)</span> the <span class="math notranslate nohighlight">\(a\)</span> dimensional isotropic Cauchy kernel of variance <span class="math notranslate nohighlight">\(\sigma\)</span>.</p>
+<dt class="sig sig-object py" id="TS_PCA.utils.from_timeseries_to_dataset">
+<span class="sig-prename descclassname"><span class="pre">TS_PCA.utils.</span></span><span class="sig-name descname"><span class="pre">from_timeseries_to_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampfreq=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype=&lt;class</span> <span class="pre">'jax.numpy.float32'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#TS_PCA.utils.from_timeseries_to_dataset" title="Link to this definition">¶</a></dt>
+<dd><p>Convert a list of time series arrays into a fixed-shape dataset suitable for TS-PCA.</p>
+<p>Each time series is transformed into a time-augmented array of shape
+<span class="math notranslate nohighlight">\((n\_samples, d+1)\)</span> where the first column contains time points (with
+sampling frequency <cite>sampfreq</cite>) and the remaining columns contain the original
+time series values. The function also returns a mask indicating valid samples
+for each time series.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>c_0</strong> (<em>(</em><em>float</em><em>)</em>) – time scaling <span class="math notranslate nohighlight">\(c_0\)</span></p></li>
-<li><p><strong>c_1</strong> (<em>(</em><em>float</em><em>)</em>) – space scaling <span class="math notranslate nohighlight">\(c_1\)</span></p></li>
-<li><p><strong>t_sigma_1</strong> (<em>(</em><em>float</em><em>)</em>) – the time variance parameter 1 <span class="math notranslate nohighlight">\(\sigma_{T,0}\)</span></p></li>
-<li><p><strong>t_sigma_2</strong> (<em>(</em><em>float</em><em>)</em>) – the time variance parameter 2 <span class="math notranslate nohighlight">\(\sigma_{T,1}\)</span></p></li>
-<li><p><strong>s_sigma</strong> (<em>(</em><em>float</em><em>)</em>) – the space variance parameter <span class="math notranslate nohighlight">\(\sigma_{x}\)</span></p></li>
+<li><p><strong>X</strong> (<em>list</em><em> of </em><em>arrays</em>) – List of time series arrays. Each element should have shape <cite>(n_samples, d)</cite>
+or <cite>(n_samples,)</cite> for univariate series.</p></li>
+<li><p><strong>sampfreq</strong> (<em>float</em><em>, </em><em>optional</em>) – Sampling frequency used to generate the time points. Default is 1.</p></li>
+<li><p><strong>dtype</strong> (<em>jnp.dtype</em><em>, </em><em>optional</em>) – Data type of the returned arrays. Default is <cite>jnp.float32</cite>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><dl class="simple">
-<dt>kernel function<span class="classifier">(X,mask_X,Y,mask_Y,b)-&gt; array of the shape of b</span></dt><dd><p><span class="math notranslate nohighlight">\(K_G(X,Y)b\)</span> where X and Y are array of size (n_samples,d+1), <span class="math notranslate nohighlight">\(K(X,Y)\)</span> is the kernel matrix <span class="math notranslate nohighlight">\((k(x_i,y_j))\)</span>
-and b is an array of shape (d,) with d the dimension of the problem</p>
+<dt>dataset<span class="classifier">jnp.array of shape (n_time_series, n_samples_max, d+1)</span></dt><dd><p>Padded dataset of time series, where <cite>n_samples_max</cite> is the length of the
+longest time series. The first column contains time points, and the
+remaining columns contain time series values.</p>
+</dd>
+<dt>mask<span class="classifier">jnp.array of shape (n_time_series, n_samples_max, 1)</span></dt><dd><p>Boolean mask indicating valid samples for each time series. True indicates
+a valid entry, False indicates padding.</p>
 </dd>
 </dl>
 </p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>The function pads shorter time series to the length of the longest series in <cite>X</cite>.</p></li>
+<li><p>Internally, it calls <cite>time_shape_embedding</cite> to embed each time series with time</p></li>
+</ul>
+<p>information and generate the corresponding mask.
+- Suitable for use as input to <cite>TS-PCA</cite> methods that require a fixed-size dataset
+and mask.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="TS_PCA.utils.time_shape_embedding">
+<span class="sig-prename descclassname"><span class="pre">TS_PCA.utils.</span></span><span class="sig-name descname"><span class="pre">time_shape_embedding</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampfreq=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_length=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype=&lt;class</span> <span class="pre">'jax.numpy.float32'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#TS_PCA.utils.time_shape_embedding" title="Link to this definition">¶</a></dt>
+<dd><p>time series to time series’graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>(</em><em>array</em><em>)</em>) – signal (T,d) or ()</p></li>
+<li><p><strong>sampfreq</strong> (<em>(</em><em>int</em><em>, </em><em>optional</em><em>)</em>) – sampling frequency. Defaults to 1. Important to set when it’s not 1 for hyperparameter tuning</p></li>
+<li><p><strong>max_length</strong> (<em>(</em><em>int</em><em>, </em><em>optional</em><em>)</em><em>:</em>) – maximum lenght desired. Defaults to None.</p></li>
+<li><p><strong>dtype</strong> (<em>(</em><em>_type_</em><em>, </em><em>optional</em><em>)</em><em>:</em>) – float32 or 64 depending on the memory. Defaults to jnp.float32.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The graph of the signal x : array of shape (T,d+1)
+Its mask  : array of shape (T,1)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pair</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="TS_PCA.kernel.Velocity_TSLDDMM_Gaussian_Kernel">
-<span class="sig-prename descclassname"><span class="pre">TS_PCA.kernel.</span></span><span class="sig-name descname"><span class="pre">Velocity_TSLDDMM_Gaussian_Kernel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_sigma_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_sigma_2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_sigma</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#TS_PCA.kernel.Velocity_TSLDDMM_Gaussian_Kernel" title="Link to this definition">¶</a></dt>
-<dd><p>Function related to the velocity TSLDDMM gaussian kernel defined as,  using the notations of the paper “Shape analysis for time series” <span class="math notranslate nohighlight">\(K_G((t,x),(t',x'))=\begin{pmatrix} c_0 K_{\text{time}}(t,t') &amp; 0 \\ 0&amp; c_1 K_{\text{space}}((t,x),(t',x'))\end{pmatrix}\)</span>
-with <span class="math notranslate nohighlight">\(K_{\text{time}}=K_{\sigma_{T,0}}^{(1)}(t,t')\)</span>, <span class="math notranslate nohighlight">\(K_{\text{space}}=K_{\sigma_{T,1}}^{(1)}(t,t')K_{\sigma_{x}}^{(d)}(x,x')\)</span>
-and <span class="math notranslate nohighlight">\(K_{\sigma}^{(a)}(w,w')=\exp(-|w-w'|^2/\sigma))\)</span> the <span class="math notranslate nohighlight">\(a\)</span> dimensional isotropic Gaussian kernel of variance <span class="math notranslate nohighlight">\(\sigma\)</span>.</p>
+<dt class="sig sig-object py" id="TS_PCA.utils.unbatch_dataset">
+<span class="sig-prename descclassname"><span class="pre">TS_PCA.utils.</span></span><span class="sig-name descname"><span class="pre">unbatch_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">batched_dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batched_masks=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype=&lt;class</span> <span class="pre">'jax.numpy.float32'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#TS_PCA.utils.unbatch_dataset" title="Link to this definition">¶</a></dt>
+<dd><p>Change the shape to remove batch dim</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>c_0</strong> (<em>(</em><em>float</em><em>)</em>) – time scaling <span class="math notranslate nohighlight">\(c_0\)</span></p></li>
-<li><p><strong>c_1</strong> (<em>(</em><em>float</em><em>)</em>) – space scaling <span class="math notranslate nohighlight">\(c_1\)</span></p></li>
-<li><p><strong>t_sigma_1</strong> (<em>(</em><em>float</em><em>)</em>) – the time variance parameter 1 <span class="math notranslate nohighlight">\(\sigma_{T,0}\)</span></p></li>
-<li><p><strong>t_sigma_2</strong> (<em>(</em><em>float</em><em>)</em>) – the time variance parameter 2 <span class="math notranslate nohighlight">\(\sigma_{T,1}\)</span></p></li>
-<li><p><strong>s_sigma</strong> (<em>(</em><em>float</em><em>)</em>) – the space variance parameter <span class="math notranslate nohighlight">\(\sigma_{x}\)</span></p></li>
+<li><p><strong>batched_dataset</strong> (<em>array</em><em> of </em><em>shape</em><em> (</em><em>n_batches</em><em>,</em><em>batch_size</em><em>,</em><em>n_s</em><em>,</em><em>n_d</em><em>)</em>) – batch dataset of time series graph</p></li>
+<li><p><strong>batched_masks</strong> (<em>array</em><em> (</em><em>n_batches</em><em>,</em><em>batch_size</em><em>,</em><em>n_s</em><em>,</em><em>1</em><em>)</em>) – Mask related to the dataset</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><dl class="simple">
-<dt>kernel function<span class="classifier">(X,mask_X,Y,mask_Y,b)-&gt; array of the shape of b</span></dt><dd><p><span class="math notranslate nohighlight">\(K_G(X,Y)b\)</span> where X and Y are array of size (n_samples,d+1), <span class="math notranslate nohighlight">\(K(X,Y)\)</span> is the kernel matrix <span class="math notranslate nohighlight">\((k(x_i,y_j))\)</span>
-and b is an array of shape (d,) with d the dimension of the problem</p>
-</dd>
-</dl>
+<dd class="field-even"><p><p>dataset : array of shape (n,n_s,n_d)</p>
+<p>mask : array of shape (n,n_s,1)</p>
 </p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pair</p>
 </dd>
 </dl>
 </dd></dl>
@@ -327,23 +354,15 @@ and b is an array of shape (d,) with d the dimension of the problem</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="lddmm.html">
-              <div class="page-info">
-                <div class="context">
-                  <span>Next</span>
-                </div>
-                <div class="title">LDDMM functions</div>
-              </div>
-              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
-            </a>
-          <a class="prev-page" href="../../index.html">
+          
+          <a class="prev-page" href="loss.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Home</div>
+                <div class="title">Loss</div>
                 
               </div>
             </a>
@@ -377,10 +396,11 @@ and b is an array of shape (d,) with d the dimension of the problem</p>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Kernels</a><ul>
-<li><a class="reference internal" href="#TS_PCA.kernel.Varifold_TSLDDMM_Gaussian_Kernel"><code class="docutils literal notranslate"><span class="pre">Varifold_TSLDDMM_Gaussian_Kernel()</span></code></a></li>
-<li><a class="reference internal" href="#TS_PCA.kernel.Velocity_TSLDDMM_Cauchy_Kernel"><code class="docutils literal notranslate"><span class="pre">Velocity_TSLDDMM_Cauchy_Kernel()</span></code></a></li>
-<li><a class="reference internal" href="#TS_PCA.kernel.Velocity_TSLDDMM_Gaussian_Kernel"><code class="docutils literal notranslate"><span class="pre">Velocity_TSLDDMM_Gaussian_Kernel()</span></code></a></li>
+<li><a class="reference internal" href="#">Utils</a><ul>
+<li><a class="reference internal" href="#TS_PCA.utils.batch_dataset"><code class="docutils literal notranslate"><span class="pre">batch_dataset()</span></code></a></li>
+<li><a class="reference internal" href="#TS_PCA.utils.from_timeseries_to_dataset"><code class="docutils literal notranslate"><span class="pre">from_timeseries_to_dataset()</span></code></a></li>
+<li><a class="reference internal" href="#TS_PCA.utils.time_shape_embedding"><code class="docutils literal notranslate"><span class="pre">time_shape_embedding()</span></code></a></li>
+<li><a class="reference internal" href="#TS_PCA.utils.unbatch_dataset"><code class="docutils literal notranslate"><span class="pre">unbatch_dataset()</span></code></a></li>
 </ul>
 </li>
 </ul>
