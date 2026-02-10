@@ -219,7 +219,7 @@ class TS_PCA_():
                 Number of components used for KPCA.
 
             mean_ : array
-                Mean momentum (:math:`\bar{p}_0`) computed across samples.
+                Mean momentum (:math:`\\bar{p}_0`) computed across samples.
 
             singular_values_ : array
                 Standard deviation of principal components.
@@ -245,7 +245,7 @@ class TS_PCA_():
 
         Notes
         -----
-        
+
             - The method internally uses `MomentaPCA` with covariance-based KPCA.
             - Each momentum is reshaped to match the expected input dimensions for KPCA.
             - Kernel PCA captures the main modes of variation of TS-LDDMM momentums,
