@@ -54,7 +54,7 @@ class_test.fit_kernel_PCA()
 
 # Step 3: Visualize the principal components
 class_test.plot_components()
-
+```
 
 
 

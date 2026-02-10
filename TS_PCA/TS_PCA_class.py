@@ -245,10 +245,12 @@ class TS_PCA_():
 
         Notes
         -----
+        
             - The method internally uses `MomentaPCA` with covariance-based KPCA.
             - Each momentum is reshaped to match the expected input dimensions for KPCA.
             - Kernel PCA captures the main modes of variation of TS-LDDMM momentums,
             which can then be used for visualization or downstream analysis.
+
         """
         if self.fit_TS_LDDMM_bool and momentums is None:
             momentums,graph_ref,graph_ref_mask=self.momentums,self.graph_ref,self.graph_ref_mask
@@ -272,14 +274,18 @@ class TS_PCA_():
 
     def fit_transform(self,n_comp=2,momentums=None,graph_ref=None,graph_ref_mask=None):
         """
+
         Apply fit_kernel_PCA and return the Projected coordinates of each momentum in the Kernel PCA space.
+
         """
         self.fit_kernel_PCA(self,n_comp=n_comp,momentums=momentums,graph_ref=graph_ref,graph_ref_mask=graph_ref_mask)
         return self.coordinates_
     
     def plot_components(self):
         """
+
         Plot the the effect of the components of Kernel PCA as deformations on the reference graph
+
         """
 
         if not(self.fit_kernel_PCA_bool):

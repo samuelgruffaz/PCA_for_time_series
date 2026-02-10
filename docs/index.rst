@@ -17,7 +17,7 @@ documentation for details.
 .. toctree::
    :maxdepth: 1
 
-   source/not_class/TS_PCA_class
+   source/class/TS_PCA_class
 
    source/not_class/kernel
 
