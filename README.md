@@ -7,7 +7,7 @@ This repository gathers the functions developed in the paper [**“Shape Analysi
 
 It is possible to represent **irregularly sampled time series of different lengths** and to apply **kernel PCA** to these representations in order to identify the main modes of shape variation in the time series.
 
-![TS-LDDMM Scheme](image/deformation_figure.pdf)
+![TS-LDDMM Scheme](image/deformation_figure.png)
 *Time series graphs $(\mathsf{G}_i)_{i\in[5]}$ are represented as the deformations of a time series graph of reference $\mathsf{G}_0$ by transformations $(\chi_{\alpha_i})_{i\in[5]} $ parameterized by $(\alpha_i)_{i\in[5]}$.*
 
 
@@ -61,7 +61,7 @@ class_test.fit_kernel_PCA()
 class_test.plot_components()
 ```
 
-![Example of principal component deformation](image/deformation_ex.pdf)
+![Example of principal component deformation](image/deformation_ex.png)
 *After applying Kernel PCA to the TS-LDDMM features $(\alpha_j)_{j \in [N]}$ extracted from a dataset of mouse respiratory cycles under drug exposure, we visualize the deformations $\chi_\alpha \cdot \msg_0$ of the reference time series graph $\mathsf{G}_0$ as $\alpha$ varies along the principal component $PC_0$.  
   Notably, $\alpha=- 1.5 \sigma \times PC_0$ captures the deformation accounting for the effect of the drug on the respiratory cycle.*
 
