@@ -32,7 +32,7 @@ and to apply **kernel PCA** to these representations in order to identify
 the main modes of shape variation in the time series.
 
 
-.. figure:: image/deformation_figure.pdf
+.. figure:: ../image/deformation_figure.png
    :width: 80%
    :align: center
 
@@ -113,7 +113,7 @@ to analyze time-series data using TS-LDDMM representations and Kernel PCA.
    class_test.plot_components()
 
 
-.. figure:: image/deformation_ex.pdf
+.. figure:: ../image/deformation_ex.png
    :width: 80%
    :align: center
 
@@ -122,9 +122,7 @@ to analyze time-series data using TS-LDDMM representations and Kernel PCA.
    under drug exposure, we visualize the deformations 
    :math:`\chi_\alpha \cdot \mathsf{G}_0` of the reference time series graph 
    :math:`\mathsf{G}_0` as :math:`\alpha` varies along the principal component 
-   :math:`PC_0`.
-
-   Notably, :math:`\alpha = -1.5 \sigma \times PC_0` captures the deformation 
+   :math:`PC_0`. Notably, :math:`\alpha = -1.5 \sigma \times PC_0` captures the deformation 
    accounting for the effect of the drug on the respiratory cycle.
 
 
