@@ -1,0 +1,53 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "Data science",
+    "author": [
+        {
+            "id": "https://orcid.org/0009-0000-8365-7048",
+            "type": "Person",
+            "affiliation": {
+                "type": "Organization",
+                "name": "ENS Paris Saclay, Centre Borelli, France"
+            },
+            "email": "samuel.gruffaz@ens-paris-saclay.fr",
+            "familyName": "Gruffaz",
+            "givenName": "Samuel"
+        },
+        {
+            "type": "Role",
+            "schema:author": "https://orcid.org/0009-0000-8365-7048",
+            "roleName": "Developper",
+            "startDate": "2026-01-01"
+        },
+        {
+            "id": "_:author_2",
+            "type": "Person",
+            "affiliation": {
+                "type": "Organization",
+                "name": "Ecole Polytechnique, France"
+            },
+            "email": "thibaut.germain.pro@gmail.com",
+            "familyName": "Germain",
+            "givenName": "Thibaut"
+        }
+    ],
+    "codeRepository": "https://github.com/samuelgruffaz/PCA_for_time_series",
+    "dateCreated": "2026-02-20",
+    "dateModified": "2026-02-20",
+    "datePublished": "2026-02-20",
+    "description": "This repository gathers the functions developed in the paper “Shape Analysis for Time Series” https://proceedings.neurips.cc/paper_files/paper/2024/file/ad86418f7bdfa685cd089e028efd75cd-Paper-Conference.pdf\n\nIt is possible to represent irregularly sampled time series of different lengths and to apply kernel PCA to these representations in order to identify the main modes of shape variation in the time series.",
+    "downloadUrl": "https://pypi.org/project/TS-PCA/0.0.12/",
+    "keywords": [
+        "Time series analysis",
+        "Shape analysis"
+    ],
+    "license": "https://spdx.org/licenses/CC0-1.0",
+    "name": "TS-PCA",
+    "programmingLanguage": "Python 3",
+    "relatedLink": [
+        "https://samuelgruffaz.github.io/PCA_for_time_series/",
+        "https://proceedings.neurips.cc/paper_files/paper/2024/file/ad86418f7bdfa685cd089e028efd75cd-Paper-Conference.pdf"
+    ],
+    "version": "0.0.12"
+}
